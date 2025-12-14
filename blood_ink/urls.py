@@ -25,4 +25,5 @@ urlpatterns = [
         include("home.urls", namespace="home"),
     ),
     path("login/", include("login.urls", namespace="login")),
+    path("novels/", include("novels.urls", namespace="novels")),
 ]

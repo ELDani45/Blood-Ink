@@ -1,4 +1,8 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [path("description/", views.description_game, name="description")]
+app_name = "novels"
+
+urlpatterns = [
+    path("description/", views.description_game, name="description"),
+]
