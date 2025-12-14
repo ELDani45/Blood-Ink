@@ -1,0 +1,12 @@
+{
+    // Puedes eliminar las lineas de python-envs si quieres usar el metodo estandar
+    // "python-envs.defaultEnvManager": "ms-python.python:system", 
+    // "python-envs.pythonProjects": [],
+
+    // Esta es la línea CLAVE para que VS Code recuerde el interprete:
+    "python.defaultInterpreterPath": ".venv/Scripts/python.exe",
+
+    // Y esta otra línea ayuda a que la terminal se active automaticamente:
+    "python.terminal.activateEnvironment": true,
+    "python-envs.pythonProjects": []
+}

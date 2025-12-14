@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'layouts/navbar.html' %}
+
+    {% block content %}
+        <h1>SingUp</h1>
+        {{message}}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button>
+                SingUp
+            </button>
+
+        </form>
+    {% endblock %}
+</body>
+</html>
