@@ -2,3 +2,4 @@
 venv/
 README.md
 .env
+db.sqlite3
