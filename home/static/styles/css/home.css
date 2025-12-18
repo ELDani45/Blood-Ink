@@ -9,12 +9,12 @@ nav{
     display: flex;
     border: 2px, solid #35235C;
     border-radius: 15px;
-    width: 85%;
+    width: 96%;
     align-items: center;
-    margin-left: 85px;
+    margin: 30px;
     margin-top: 20px;
-    box-shadow: 10px 10px 50px 5px #35235C;
-    text-align: end;
+    box-shadow: 10px 10px 30px 1px #35235C;
+    
     /* background: linear-gradient(to right, #333, transparent); */
 }
 

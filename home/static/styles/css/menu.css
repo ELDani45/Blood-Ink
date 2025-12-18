@@ -5,10 +5,10 @@ body{
 
 .main_box{
     background-color: #060609;
-    width: 85%;
-    margin-left: 95px;
+    width: 96%;
     min-height: 700px;
     margin-top: 40px;
+    margin-left: 30px;
     padding-top: 30px;
     border-radius: 18px;
     border: 2px, solid #35235C;

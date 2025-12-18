@@ -1,13 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desciprción</title>
-</head>
-<body>
-    
-    <h1>Descripcion del Juego </h1>
+{% extends 'layouts/navbar.html' %}
 
+{% load static %}
+
+{% block title %} Description {% endblock %}
+
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/description.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>  
+    <main >
+        <div class="up_box">
+            <h2>This is a space free
+            </h2>
+        </div>
+        <div class="sub_box">
+            <section class="card_details">
+                <h2>Descripcion del Juego </h2>
+            </section>
+            
+            <!-- Card Description  -->
+            <section class="card_description">
+                <!-- Parte de arriba-->
+                <div class="container_description">
+                    <section class="mini_box">
+                        <p class="estilo_letra_gris">Prologo</p>
+                        <p class="text_normal ">La tinta que sangra</p>
+                    </section>
+                    <section class="mini_box2">
+                        <button class="buttom_description_purple">Guardar</button>
+                        <button class="buttom_description_gray">Descargar</button>
+                    </section>
+                </div>
+                <!-- Parte de abajo-->
+                <div class="text_description">
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facere earum enim quo, dolorum alias commodi corrupti voluptate, perspiciatis id aliquid. Quam fuga ut in qui harum voluptate provident placeat. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, excepturi. Inventore omnis veniam sed non obcaecati, dolor accusantium nobis blanditiis! Quis esse recusandae temporibus a. Soluta deserunt recusandae ea adipisci. <br> <br> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam doloribus illum fuga fugiat, voluptas vero? Explicabo itaque nihil eum aut id recusandae ex deserunt et sapiente! Delectus alias aperiam et! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis recusandae placeat ex consequatur maiores quod a porro officiis rerum magnam rem, possimus, excepturi fugiat illum labore aut ab? Molestias, ab?</p>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+    {% endblock %}
 </body>
-</html>
