@@ -13,6 +13,16 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 
+# Admin : correo para recibir informes de errores cuando el servidor caiga.
+ADMINS = ['"Daniel , Chilito" <chilito45giron@gmail.com>']
+
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = 587                              # CONFIGURACINES FUTURAS...
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = "chilito45giron@gmail.com"
+# EMAIL_HOST_PASSWORD = "TU_APP_PASSWORD"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,16 +40,15 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "aggregately-proallotment-daina.ngrok-free.dev",  # <-- Pégala aquí
+    "aggregately-proallotment-daina.ngrok-free.dev",  # Ngrock
 ]
 
 
 # ALLOWED_HOSTS = [
 #     "127.0.0.1",
 #     "localhost",
-#     # Añade la URL de ngrok aquí:
 #     "aggregately-proallotment-daina.ngrok-free.dev",
-#     # Si tienes otros dominios, también irían aquí:
+#     # dominios, también irían aquí:
 #     # 'tudominio.com',
 # ]
 

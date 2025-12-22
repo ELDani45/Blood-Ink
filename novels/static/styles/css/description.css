@@ -31,6 +31,7 @@ main{
     width: 400px;
     height: 500px;
     border-radius: 20px;
+
 }
 .card_description{
     border: solid 2px #35235C;
@@ -119,4 +120,32 @@ main{
         inset 0 -1px 0 rgba(0, 0, 0, 0.1),     
         0 2px 4px rgba(0, 0, 0, 0.2);          
     transition: background-color 0.3s ease;
+}
+/*  Esto es de la card description.  */
+.titulo_description{
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.caja_img_title{
+    background-color: #424242;
+    display: flex;
+}
+.image_description{
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: 15px;
+
+}
+.novel_genre{
+    background-color: #7335DD;
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+}
+.geners{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
 }
