@@ -5,7 +5,8 @@ from .models import Description, Genero
 
 
 def description_game(request):
-    titulo = Description.objects.all()
+    genero = Genero.objects.all()
+    novela = Description.objects.all()
     return render(request, "description.html", {
-        "title": titulo
+        "novel": novela, "generos": genero
     })

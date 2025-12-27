@@ -21,29 +21,37 @@
 
         <div class="sub_box">
             
+            {% for novela in novel %}
             <!-- Card Desscription -->
             <section class="card_details">
-                <h2 class="titulo_description">{{ title.title }} </h2>
-                <div class="caja_img_title">
-                    <img class="image_description" src="{% static 'logo_navbar3.jpg' %}" alt="Imagen de la novela" , width="150", height="200">
-                    <div class="novel_genre">
-                        <p class="geners">Drama </p>
+                    <h2 class="titulo_description">{{ novela.title }} </h2>
+                
+                    <div class="caja_img_title">
+                        {% if novela.imagen_portada %}
+                        <img class="image_description" src="{{ novela.imagen_portada.url }}" alt="Imagen de la novela" , width="150", height="200">
+                        {% endif %}
+                        <div class="novel_genre">
+                            {% for genero in generos %}
+                            <ul>
+                                <li class="geners">
+                                    {{ genero.gener }} 
+                                </li>
+                            </ul>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-
-
-
             </section>
 
 
-            
             <!-- Card Text field  -->
             <section class="card_description">
                 <!-- Parte de arriba-->
                 <div class="container_description">
                     <section class="mini_box">
-                        <p class="estilo_letra_gris">Prologo</p>
-                        <p class="text_normal ">La tinta que sangra</p>
+                        
+                            <p class="estilo_letra_gris">{{ novela.prologo }}</p>
+                            <p class="text_normal ">Cualquier texto aqui</p>
+                        
                     </section>
                     <section class="mini_box2">
                         <button class="buttom_description_purple">Guardar</button>
@@ -53,11 +61,12 @@
                 <!-- Parte de abajo-->
                 <div class="text_description">
                     <div class="text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facere earum enim quo, dolorum alias commodi corrupti voluptate, perspiciatis id aliquid. Quam fuga ut in qui harum voluptate provident placeat. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, excepturi. Inventore omnis veniam sed non obcaecati, dolor accusantium nobis blanditiis! Quis esse recusandae temporibus a. Soluta deserunt recusandae ea adipisci. <br> <br> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam doloribus illum fuga fugiat, voluptas vero? Explicabo itaque nihil eum aut id recusandae ex deserunt et sapiente! Delectus alias aperiam et! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis recusandae placeat ex consequatur maiores quod a porro officiis rerum magnam rem, possimus, excepturi fugiat illum labore aut ab? Molestias, ab?</p>
+                        <p>{{ novela.text_description }}</p>
                     </div>
                 </div>
 
             </section>
+            {% endfor %}
         </div>
     </main>
     {% endblock %}

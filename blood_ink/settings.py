@@ -56,12 +56,12 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.admin",  # El si tio administrativo
+    "django.contrib.auth",  # Un sistema de autenticación
+    "django.contrib.contenttypes",  # Un framework para lo tipos de contenidos
+    "django.contrib.sessions",  # Un framwork de sesion
+    "django.contrib.messages",  # Un framework de mensajeria
+    "django.contrib.staticfiles",  # Un framework para la gestion de archivos estaticos
     "home",
     "login",
     "novels",
@@ -132,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Bogota"
 
 USE_I18N = True
 
@@ -145,5 +145,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "home/static",
 ]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
