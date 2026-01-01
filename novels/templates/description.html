@@ -31,11 +31,12 @@
                         <img class="image_description" src="{{ novela.imagen_portada.url }}" alt="Imagen de la novela" , width="150", height="200">
                         {% endif %}
                         <div class="novel_genre">
-                            {% for genero in generos %}
+                            {% for genero in novela.genero.all %}
                             <ul>
                                 <li class="geners">
                                     {{ genero.gener }} 
                                 </li>
+                            
                             </ul>
                             {% endfor %}
                         </div>
@@ -50,8 +51,9 @@
                     <section class="mini_box">
                         
                             <p class="estilo_letra_gris">{{ novela.prologo }}</p>
-                            <p class="text_normal ">Cualquier texto aqui</p>
-                        
+                            {% for x in novela.author.all  %}
+                            <p class="text_normal ">Autor: {{ x.firts_names }}</p>
+                            {% endfor %}
                     </section>
                     <section class="mini_box2">
                         <button class="buttom_description_purple">Guardar</button>
