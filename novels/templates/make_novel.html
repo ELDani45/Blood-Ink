@@ -1,0 +1,43 @@
+{% extends 'layouts/navbar.html' %}
+
+{% load static %}
+
+{% block title %} Make Novels {% endblock %}
+
+{% block css_extra %}
+<link rel="stylesheet" href=" {% static 'styles/css/inputs_labels.css' %}"">
+{% endblock %}
+
+{% block content %}
+
+
+<body>
+    
+<form class="formulario-padre" method="POST">
+    {% csrf_token %}
+    <label >Titulo</label>
+    <div class="titulo-description">
+        {{ form_Novel.title }}
+    </div>
+
+    <label>Generos</label>
+    <div class="genero-description">
+        {{ form_Novel.genero}}
+    </div>
+
+    <label>Descripción</label>
+    <div class="text_description">
+        {{ form_Novel.text_description}}
+    </div>
+
+    <button type="submit">
+        Guardar
+    </button>
+
+</form>
+
+
+</body>
+
+
+{% endblock %}
