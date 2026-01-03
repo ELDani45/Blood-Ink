@@ -1,59 +1,33 @@
-{% extends 'layouts/navbar.html' %}
-
-{% load static %}
-
-{% block title %} Make Novels {% endblock %}
-
-{% block css_extra %}
-<link rel="stylesheet" href=" {% static 'styles/css/inputs_labels.css' %}"">
-{% endblock %}
-
-{% block content %}
-
+{% extends 'layouts/navbar.html' %} {% load static %} {% block title %} Make
+Novels {% endblock %} {% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/inputs_labels.css' %}" />
+{% endblock %} {% block content %}
 
 <body>
-    <h1>Descripción Novela</h1>
+  <h1>Descripción Novela</h1>
 
-<form class="form-container" method="POST">
+  <form class="form-container" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <label >Titulo</label>
-    <div class="titulo-description">
-        {{ form_Novel.title }}
-    </div>
+    <label>Titulo</label>
+    <div class="titulo-description">{{ form_Novel.title }}</div>
 
     <label>Generos</label>
-    <div class="genero-description">
-        {{ form_Novel.genero}}
-    </div>
+    <div class="genero-description">{{ form_Novel.genero}}</div>
 
     <label>Descripción</label>
-    <div class="text_description">
-        {{ form_Novel.text_description}}
-    </div>
+    <div class="text_description">{{ form_Novel.text_description}}</div>
 
     <label>Prologo</label>
-    <div class="titulo-description">
-        {{ form_Novel.prologo}}
-    </div>
+    <div class="titulo-description">{{ form_Novel.prologo}}</div>
 
     <label>Autores</label>
-    <div class="genero-description">
-        {{ form_Novel.author}}
-    </div>
+    <div class="genero-description">{{ form_Novel.author}}</div>
 
     <label>Portada</label>
-    <div class="portada-description">
-        {{ form_Novel.imagen_portada }}
-    </div>
+    <div class="portada-description">{{ form_Novel.imagen_portada }}</div>
 
-    <button class="buttom_save" type="submit">
-        Guardar
-    </button>
-
-</form>
-
-
+    <button class="buttom_save" type="submit">Guardar</button>
+  </form>
 </body>
-
 
 {% endblock %}

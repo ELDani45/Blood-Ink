@@ -1,46 +1,41 @@
 {% extends 'layouts/navbar.html' %}
-
+<!--  -->
 {% load static %}
-
+<!--  -->
+{% block title %} Home {% endblock %}
+<!--  -->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/menu.css' %}" />
+{% endblock %}
+<!--  -->
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Index</title>
-    
-        <link rel="stylesheet" href="{% static '/styles/css/menu.css' %}">
-    </head>
-    <body>
-        
-    <main class="main_box">
-        <h2 class = "subtitulo">
-            Visuals Novels
-        </h2>
+<!--  -->
 
-        <div class="card">
+<main class="main_box">
+  <h2 class="subtitulo">Visuals Novels</h2>
+  <!-- Aqui estamos creando cada card   -->
+  <div class="contenedor_tarjetas">
+    {% for novel in list_novels %}
+    <div class="card">
+      <h2 class="card_title">{{ novel.title }}</h2>
+      {% if novel.imagen_portada %}
+      <img
+        class="imagen_card"
+        src="{{ novel.imagen_portada.url }}"
+        alt="Imagen portada de Dragon ball Z"
+      />
+      {% endif %}
+      <!--  -->
+      <p>{{ novel.prologo }}</p>
+      <!--  -->
+      <p>{{ novel.creation_date }}</p>
+      <!--  -->
+      <a href="{% url 'novels:description' %}">
+        <button class="buttom_card">Leer</button>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</main>
 
-            <H2 class="card_title" >天の血統 (Ten no Ketto)</H2>
-            <img class="imagen_card" src="{% static 'imagen_card.jpg' %}" alt="天の血統 (Ten no Ketto)">
-
-            <P>
-                this is the index page
-            </P>
-            <h3>
-                {{message}}
-            </h3>
-            
-            <a href="{% url 'novels:description' %}">
-                <button class="buttom_card" >
-                    Leer
-                </button>
-            </a>
-
-        </div>
-
-    </main>
-
-    {% endblock %}
-</body>
-</html>
+{% endblock %}

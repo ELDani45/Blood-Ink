@@ -5,26 +5,32 @@ body{
 
 .main_box{
     background-color: #060609;
-    width: 96%;
+    width: 95%;
     min-height: 700px;
-    margin-top: 40px;
-    margin-left: 30px;
+    margin: 40px;
     padding-top: 30px;
     border-radius: 18px;
     border: 2px, solid #35235C;
     box-shadow: 10px 10px 50px 5px #35235C;
 }
+.contenedor_tarjetas{
+    display: flex;
+    flex-wrap: wrap; /* Esto permite que si no caben, bajen a la siguiente fila */
+    gap: 20px;       /* Espacio entre tarjetas */
+    justify-content: center;
+}
 
 .card{
     text-align: center;
          /* top            left  */
-    margin: 0px 20px 20px 90px;
+    margin: 30px;
     width: 350px;
-    height: 390px;
+    height: auto;
     background-color: #242424;
     border-radius: 15px;
     border: 2px, solid #35235C;
     box-shadow: 10px 10px 50px 5px #35235C;
+    padding-bottom: 20px
 
 }
 

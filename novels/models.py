@@ -33,7 +33,18 @@ class Author(models.Model):
 # * Hacer representascion visual en excalidraw
 
 
-class Description(models.Model):
+class CreationDate(models.Model):
+    # La diferencia entre [ auto_now_add ] y [ auto_now ] es que el atributo con add al final, no cambia la fecha desde que se añade, en cambio sin el ad al final, la fecha cambia despues de cada modificacion
+    creation_date = models.DateField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return str(self.creation_date)
+
+
+class Description(CreationDate):
     title = models.CharField(max_length=50)
     genero = models.ManyToManyField(Genero)
     text_description = models.TextField(max_length=600)
@@ -41,7 +52,6 @@ class Description(models.Model):
     author = models.ManyToManyField(Author)
     imagen_portada = models.ImageField(
         blank=True, upload_to="portadas/", null=True)
-    date_of_post = models.DateField(auto_now=True)
 
     objects = CustomManager()
 
