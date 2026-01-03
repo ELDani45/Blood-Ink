@@ -15,10 +15,17 @@ class Makenovel(forms.ModelForm):
             'genero': forms.CheckboxSelectMultiple(attrs={
                 'class': 'genero-inside'
             }),
-            'author': forms.CheckboxSelectMultiple(attrs={
-                'class': 'titulo-novel'
-            }),
             'text_description': forms.Textarea(attrs={
                 'class': 'text-description'
+            }),
+            'prologo': forms.TextInput(attrs={
+                'class': 'titulo-novel'
+            }),
+            'author': forms.CheckboxSelectMultiple(attrs={
+                'class': 'genero-inside'
+            }),
+            'imagen_portada': forms.FileInput(attrs={
+                'class': 'image-description',
+                'accept': 'image/*'
             })
         }

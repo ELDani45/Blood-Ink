@@ -12,8 +12,9 @@
 
 
 <body>
-    
-<form class="formulario-padre" method="POST">
+    <h1>Descripción Novela</h1>
+
+<form class="form-container" method="POST">
     {% csrf_token %}
     <label >Titulo</label>
     <div class="titulo-description">
@@ -30,7 +31,22 @@
         {{ form_Novel.text_description}}
     </div>
 
-    <button type="submit">
+    <label>Prologo</label>
+    <div class="titulo-description">
+        {{ form_Novel.prologo}}
+    </div>
+
+    <label>Autores</label>
+    <div class="genero-description">
+        {{ form_Novel.author}}
+    </div>
+
+    <label>Portada</label>
+    <div class="portada-description">
+        {{ form_Novel.imagen_portada }}
+    </div>
+
+    <button class="buttom_save" type="submit">
         Guardar
     </button>
 
