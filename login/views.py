@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login as auth_login
+from login.forms import SignIn, SingUp
 
 # from django.http import HttpResponse
 
@@ -11,7 +12,7 @@ from django.contrib.auth import logout, authenticate, login as auth_login
 def login(request):
 
     if request.method == "GET":
-        return render(request, "login/login.html", {"form": UserCreationForm})
+        return render(request, "login/login.html", {"form": SingUp})
 
     else:
 
@@ -24,11 +25,10 @@ def login(request):
                 )
 
                 auth_login(request, user)
-                return render(
-                    request,
-                    "home.html",
+                return redirect(
+                    "home:home",
                     {
-                        "form": UserCreationForm,
+                        "form": SingUp,
                         "message": "Usuario creado sactifastoriamente",
                     },
                 )
@@ -36,15 +36,15 @@ def login(request):
             except ImportError:
                 return render(
                     request,
-                    "login_page",
-                    {"form": UserCreationForm, "message": "El usuario ya existe"},
+                    "login/login.html",
+                    {"form": SingUp, "message": "El usuario ya existe"},
                 )
 
         else:
             return render(
                 request,
-                "login_page",
-                {"form": UserCreationForm, "message": "Las contraselas no coinciden"},
+                "login/login.html",
+                {"form": SingUp, "message": "Las contraselas no coinciden"},
             )
 
 
@@ -56,7 +56,7 @@ def signout(request):
 def signin(request):
 
     if request.method == "GET":
-        return render(request, "login/signin.html", {"form": AuthenticationForm})
+        return render(request, "login/signin.html", {"form": SignIn})
     else:
         user = authenticate(
             request,
@@ -68,10 +68,10 @@ def signin(request):
                 request,
                 "login/signin.html",
                 {
-                    "form": AuthenticationForm,
+                    "form": SignIn,
                     "message": "Usuario o contraseña incorrecto",
                 },
             )
         else:
             auth_login(request, user)
-            return render(request, "login/signin.html", {"form": AuthenticationForm})
+            return redirect("home:home")

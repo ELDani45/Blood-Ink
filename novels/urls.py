@@ -4,7 +4,7 @@ from . import views
 
 app_name = "novels"
 
-urlpatterns = [
-    path("description/", views.description_game, name="description"),
+urlpatterns = [  # Aqui <int { Es el tipo de dato que el servidor va a recibir } : pk { pk es la instancia que va a recibir, en este caso va a recibir un ID }
+    path("description/<int:id>/", views.description_game, name="description"),
     path("make_novel", views.hacer_novel, name="making_novel")
 ]

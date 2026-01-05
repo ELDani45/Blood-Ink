@@ -2,54 +2,63 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>navbar</title>
-        <link rel="stylesheet" href="{% static '/styles/css/home.css' %}">
-
-        {% block css_extra %}{% endblock %}
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar</title>
+    <link rel="stylesheet" href="{% static '/styles/css/home.css' %}" />
+    <!-- {% block title %} {% endblock %} -->
+    <!-- -->
+    {% block css_extra %} {% endblock %}
+  </head>
+  <body>
     <nav>
-        <img class="logo_navbar" src="{% static 'logo_navbar3.jpg' %}" alt="logo_navbar", width="60", height="58"> 
+      <img
+        class="logo_navbar"
+        src="{% static 'logo_navbar3.jpg' %}"
+        alt="logo_navbar"
+        ,
+        width="60"
+        ,
+        height="58"
+      />
 
-        <h2 class="titulo_navbar">BLOOD-INK</h2>
+      <h2 class="titulo_navbar">BLOOD-INK</h2>
+      <ul>
+        <li>
+          <a href="{% url 'home:home' %}">Menu</a>
+        </li>
+      </ul>
+
+      <div class="auth-links-container">
+        {% if user.is_authenticated %}
         <ul>
-            <li>
-                <a href="{% url 'home:home' %}">Menu</a>
-            </li>
+          <li>
+            <a href="{% url 'login:signout' %}">Cerrar sesión</a>
+          </li>
         </ul>
-
-        <div class="auth-links-container">
-            
-            {% if user.is_authenticated %}
-            <ul>
-                <li>
-                    <a href="{% url 'login:signout' %}">Cerrar sesión</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="{% url 'novels:making_novel' %}">Crear Novela</a>
-                </li>
-            </ul>
-            {% else %}
-            <ul>
-                <li>
-                    <a href="{% url 'login:login' %}">Registrarse</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a class="buttom_login" href="{% url 'login:signin' %}">Iniciar sesión</a>
-                </li>
-            </ul>
-            {% endif %}
-        </div>
+        <ul>
+          <li>
+            <a href="{% url 'novels:making_novel' %}">Crear Novela</a>
+          </li>
+        </ul>
+        {% else %}
+        <ul>
+          <li>
+            <a href="{% url 'login:login' %}">Registrarse</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a class="buttom_login" href="{% url 'login:signin' %}"
+              >Iniciar sesión</a
+            >
+          </li>
+        </ul>
+        {% endif %}
+      </div>
     </nav>
- 
-{% block content %}
-{% endblock %}   
-</body>
+
+    {% block content %} {% endblock %}
+  </body>
 </html>

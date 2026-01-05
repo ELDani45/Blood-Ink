@@ -1,29 +1,39 @@
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block title %} iniciar sesión {% endblock %}
+<!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/users_inputs.css' %}" />
+{% endblock %}
+<!---->
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>signin</title>
-        
-    </head>
-    <body>
-        {% extends 'layouts/navbar.html' %}
-        {% load static %}
+<main>
+  <h1>Iniciar sesión</h1>
+  {{ message }}
+  <div class="contenedor-father">
+    <!-- inicio del formulario -->
+    <form method="POST">
+      {% csrf_token %}
+      <!-- Este es el contenedor de username -->
+      <div class="container-username">
+        <label>Username</label>
+        <!-- espacio -->
+        {{ form.username }}
+      </div>
+      <!-- Este es el contenedor del Password -->
+      <div class="container-password">
+        <label>Password</label>
+        <!-- espacio -->
+        {{ form.password }}
+      </div>
+      <div class="container-password">
+        <button class="buttom_sesion">Guardar</button>
+      </div>
+    </form>
+  </div>
+</main>
 
-        {% block content %}
-
-        <h1>Iniciar sesión</h1>
-
-        {{ message }}
-        <form method="POST">
-            {% csrf_token %}
-
-            {{ form.as_p }}
-
-            <button>Guardar</button>
-        </form>
-
-        {% endblock %}
-</body>
-</html>
+{% endblock %}

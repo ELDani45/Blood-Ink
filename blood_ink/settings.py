@@ -42,6 +42,8 @@ ALLOWED_HOSTS = [
     "localhost",
     "aggregately-proallotment-daina.ngrok-free.dev",  # Ngrock
 ]
+# Permite que el token CSRF sea aceptado desde tu servidor local
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost:8000']
 
 
 # ALLOWED_HOSTS = [
@@ -145,7 +147,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "home/static",
+    BASE_DIR / "static",
 ]
 
 MEDIA_URL = "/media/"

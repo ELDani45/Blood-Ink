@@ -39,6 +39,7 @@ class CreationDate(models.Model):
 
     class Meta:
         abstract = True
+        # Esto hace que el modelo hijo herede directamente la instancia
 
     def __str__(self):
         return str(self.creation_date)
