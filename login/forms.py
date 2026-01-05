@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 
@@ -16,3 +17,14 @@ class SingUp (UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'input'
     }))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'input'
+    }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'input'
+    }))
+
+    class Meta:
+        model = User
+        # Definimos los campos que se mostrarán
+        fields = ("username",)

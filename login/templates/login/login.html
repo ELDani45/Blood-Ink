@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% extends 'layouts/navbar.html' %}
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!-- Esto es Sign Up? -->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/users_inputs.css' %}" />
+{% endblock %}
+<!-- -->
+{% block content %}
 
-    {% block content %}
-        <h1>SingUp</h1>
-        {{message}}
+<main>
+  <h1 class="titulo_signUp">Registrarse</h1>
+  {{message}}
 
-        <form method="POST">
-            {% csrf_token %}
+  <div class="contenedor-father">
+    <form method="POST">
+      {% csrf_token %} {{ form.non_field_errors }}
 
-            {{ form.as_p }}
-
-            <button>
-                SingUp
-            </button>
-
-        </form>
-    {% endblock %}
-</body>
-</html>
+      <label>Username</label>
+      {{ form.username.errors }} {{ form.username }}
+      <label>Password</label>
+      {{ form.passwprd1.errors }} {{ form.password1 }}
+      <label>Confirmation</label>
+      {{ form.password2.errors }} {{ form.password2 }}
+      <button class="buttom_sesion">SingUp</button>
+    </form>
+  </div>
+</main>
+{% endblock %}

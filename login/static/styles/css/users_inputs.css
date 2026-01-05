@@ -20,19 +20,20 @@ label {
 form{
     align-items: center;
 }
+
 .contenedor-father{
     background-color: #0000002a;
-    padding: 40px 30px;
+    padding: 35px;
+    padding-bottom: 30px;
     border-radius: 10px;
     width: 100%;
-    max-width: 500px;
+    width: auto;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column; 
     align-items: center;    
-    width: 100%; 
     height: auto;
     border: 2px solid #7335DD ;
     box-shadow: inset 8px 30px 60px #7335dd5d, 
@@ -49,13 +50,14 @@ form{
     font-size: 20px;
 }
 .buttom_sesion{
+    margin-top: 20px;
     border: 2px solid #7335DD ;
-    width: 105px;
+    width: 100%;
     font-size: 17px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    background-color: #060609;
+    background-color: #7335DD;
     padding: 6px;
     border-radius: 10px;
     transition: background-color 0.3s ease, padding 0.3s ease;
@@ -66,3 +68,27 @@ form{
     transition: background-color 0.3s ease;
     align-items: center;
 }
+.helptext{
+    background-color: #7335DD;
+    font-size: 25px;
+}
+/* #id_password2{
+    height: 30px;
+    border: 2px solid #7335DD ;
+    border-radius: 10px;
+    background-color: #060609;
+    color: white;
+    width: 100%;
+    color: whitesmoke;
+    font-size: 20px;
+}
+#id_password1{
+    height: 30px;
+    border: 2px solid #7335DD ;
+    border-radius: 10px;
+    background-color: #060609;
+    color: white;
+    width: 100%;
+    color: whitesmoke;
+    font-size: 20px;
+} */

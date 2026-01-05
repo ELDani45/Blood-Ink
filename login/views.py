@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
 # from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login as auth_login
 from login.forms import SignIn, SingUp
 
@@ -10,42 +10,21 @@ from login.forms import SignIn, SingUp
 
 
 def login(request):
+    if request.method == 'GET':
+        form = SingUp()
+        return render(request, "login/login.html", {"form": form})
 
-    if request.method == "GET":
-        return render(request, "login/login.html", {"form": SingUp})
-
-    else:
-
-        if request.POST["password1"] == request.POST["password2"]:
-            try:
-                # register user
-                user = User.objects.create_user(
-                    username=request.POST["username"],
-                    password=request.POST["password1"],
-                )
-
-                auth_login(request, user)
-                return redirect(
-                    "home:home",
-                    {
-                        "form": SingUp,
-                        "message": "Usuario creado sactifastoriamente",
-                    },
-                )
-
-            except ImportError:
-                return render(
-                    request,
-                    "login/login.html",
-                    {"form": SingUp, "message": "El usuario ya existe"},
-                )
-
+    if request.method == "POST":
+        form = SingUp(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)
+            return redirect("home:home")
         else:
-            return render(
-                request,
-                "login/login.html",
-                {"form": SingUp, "message": "Las contraselas no coinciden"},
-            )
+            return render(request, "login/login.html", {"form": form})
+    else:
+        form = SingUp()
+        return render(request, "login/login.html", {"form": form})
 
 
 def signout(request):
