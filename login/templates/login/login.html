@@ -13,13 +13,15 @@
   {{message}}
 
   <div class="contenedor-father">
-    <form method="POST">
+    <form method="POST" action="{% url 'login:login' %}">
       {% csrf_token %} {{ form.non_field_errors }}
 
       <label>Username</label>
       {{ form.username.errors }} {{ form.username }}
+      <label>Correo Electroníco</label>
+      {{ form.email.errors }} {{ form.email }}
       <label>Password</label>
-      {{ form.passwprd1.errors }} {{ form.password1 }}
+      {{ form.password1.errors }} {{ form.password1 }}
       <label>Confirmation</label>
       {{ form.password2.errors }} {{ form.password2 }}
       <button class="buttom_sesion">SingUp</button>
