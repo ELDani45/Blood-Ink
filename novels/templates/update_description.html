@@ -1,0 +1,20 @@
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/inputs_labels.css' %}" />
+{% endblock %}
+<!---->
+{% block content %}
+
+<h1>Editar descripción</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <!---->
+  {{ form_novel }}
+  <!---->
+  <button class="buttom_save" type="submit">Guardar</button>
+</form>
+{% endblock %}

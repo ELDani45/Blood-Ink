@@ -23,3 +23,24 @@ def hacer_novel(request):
         return render(request, "make_novel.html", {
             'form_Novel': form
         })
+
+
+def update_description(request, id=None) -> object:
+    description = Description.objects.get(id=id)
+    if request.method == "GET":
+        form_novel = Makenovel(instance=description)
+        # Renderizar page
+        return render(request, "update_description.html", {
+            "form_novel": form_novel
+        })
+
+    if request.method == "POST":
+        form_novel = Makenovel(instance=description, data=request.POST)
+        if form_novel.is_valid():
+            form_novel.save()
+            return redirect("home:home")
+        else:
+            form_novel = Makenovel(instance=description, data=request.POST)
+        return render(request, "update_description.html", {
+            "form_novel": form_novel
+        })

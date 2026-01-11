@@ -1,7 +1,14 @@
-{% extends 'layouts/navbar.html' %} {% load static %} {% block title %}
-Description {% endblock %} {% block css_extra %}
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block title %} Description {% endblock %}
+<!---->
+{% block css_extra %}
 <link rel="stylesheet" href="{% static 'styles/css/description.css' %}" />
-{% endblock %} {% block content %}
+{% endblock %}
+<!---->
+{% block content %}
 <body>
   <main>
     <div class="up_box">
@@ -48,7 +55,9 @@ Description {% endblock %} {% block css_extra %}
           </section>
           <section class="mini_box2">
             <button class="buttom_description_purple">Guardar</button>
-            <button class="buttom_description_gray">Descargar</button>
+            <button class="buttom_description_gray">
+              <a href="{% url 'novels:update' novela.id %}">Editar</a>
+            </button>
           </section>
         </div>
         <!-- Parte de abajo-->
