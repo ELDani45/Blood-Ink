@@ -3,17 +3,17 @@
 {% load static %}
 <!---->
 {% block css_extra %}
-<link rel="stylesheet" href="{% static 'styles/css/inputs_labels.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/css/prologue.css' %}" />
 {% endblock %}
 <!---->
 {% block content %}
 
-<main>
+<main class="body_prologue">
   <h1>Prologo</h1>
-
+  <br />
   <div class="box_prologue">
     <!---->
-    {{ prologue.prologo }}
+    <p>{{ prologue.prologo }}</p>
     <!---->
   </div>
 </main>

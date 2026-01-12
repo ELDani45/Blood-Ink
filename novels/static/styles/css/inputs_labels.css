@@ -15,6 +15,7 @@ label {
     font-weight: bold;
     font-size: 1.1rem;
 }
+
 .form-container {
     background-color: #202020;
     padding: 40px 30px;
@@ -30,8 +31,6 @@ label {
     width: 100%; 
     height: auto;
 }
-
-
 
 .genero-description{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -102,12 +101,4 @@ label {
         0 2px 4px rgba(0, 0, 0, 0.2);          
     transition: background-color 0.3s ease;
 }
-/* Prologo Page: */
-.box_prologue{
-    min-height: 350px;
-    min-width: 700px;
-    background-color: #35235C;
-    padding: 30px;
-    text-align: center;
-    border-radius: 20px;
-}
+
