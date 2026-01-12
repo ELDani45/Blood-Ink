@@ -48,13 +48,15 @@
         <!-- Parte de arriba-->
         <div class="container_description">
           <section class="mini_box">
-            <p class="estilo_letra_gris">{{ novela.prologo }}</p>
             {% for x in novela.author.all %}
             <p class="text_normal">Autor: {{ x.firts_names }}</p>
             {% endfor %}
           </section>
+          <!-- Seccion de los botones " editar y Leer prologo "  -->
           <section class="mini_box2">
-            <button class="buttom_description_purple">Guardar</button>
+            <button class="buttom_description_purple">
+              <a href="{% url 'novels:prologue' novela.id %}">Leer prologo</a>
+            </button>
             <button class="buttom_description_gray">
               <a href="{% url 'novels:update' novela.id %}">Editar</a>
             </button>

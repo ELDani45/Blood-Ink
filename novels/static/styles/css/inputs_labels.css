@@ -102,3 +102,12 @@ label {
         0 2px 4px rgba(0, 0, 0, 0.2);          
     transition: background-color 0.3s ease;
 }
+/* Prologo Page: */
+.box_prologue{
+    min-height: 350px;
+    min-width: 700px;
+    background-color: #35235C;
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+}

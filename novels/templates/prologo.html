@@ -1,0 +1,21 @@
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/inputs_labels.css' %}" />
+{% endblock %}
+<!---->
+{% block content %}
+
+<main>
+  <h1>Prologo</h1>
+
+  <div class="box_prologue">
+    <!---->
+    {{ prologue.prologo }}
+    <!---->
+  </div>
+</main>
+
+{% endblock %}

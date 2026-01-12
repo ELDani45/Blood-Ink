@@ -25,8 +25,8 @@ def hacer_novel(request):
         })
 
 
-def update_description(request, id=None) -> object:
-    description = Description.objects.get(id=id)
+def update_description(request, id_description=None) -> object:
+    description = Description.objects.get(id=id_description)
     if request.method == "GET":
         form_novel = Makenovel(instance=description)
         # Renderizar page
@@ -44,3 +44,10 @@ def update_description(request, id=None) -> object:
         return render(request, "update_description.html", {
             "form_novel": form_novel
         })
+
+
+def prologue(request, pk):
+    prologo = Description.objects.get(id=pk)
+    return render(request, "prologo.html", {
+        "prologue": prologo
+    })
