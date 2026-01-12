@@ -15,7 +15,7 @@ def description_game(request, id=None):
 
 def hacer_novel(request):
     if request.method == 'POST':
-        form = Makenovel(request.POST, request.FILES)
+        form = Makenovel(data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home:home')
@@ -54,8 +54,6 @@ def prologue(request, id):
     return render(request, "prologo.html", {
         "prologue": prologo
     })
-
-# @login_required
 
 
 def novels_delete(request, id=None):
