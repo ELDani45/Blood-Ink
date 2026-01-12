@@ -27,10 +27,10 @@ class Author(models.Model):
 
     def __str__(self):
         return str(self.firts_names)
-# Modelo de descripcion de las novelas
-# - Pendienrte:
-# * Realcionar este modelo con el modelo de la novela
-# * Hacer representascion visual en excalidraw
+
+
+class Like(models.Model):
+    likes = models.PositiveBigIntegerField()
 
 
 class CreationDate(models.Model):
@@ -53,15 +53,15 @@ class Description(CreationDate):
     author = models.ManyToManyField(Author)
     imagen_portada = models.ImageField(
         blank=True, upload_to="portadas/", null=True)
+    like = models.OneToOneField(
+        Like, on_delete=models.CASCADE, blank=True, null=True)
 
     objects = CustomManager()
 
     def __str__(self):
         return str(self.title)
+
+
 # Pendiente : 1/ hacer el modelo de la novela en si
 
 # Modelo de Novela
-
-
-class Novela(models.Model):
-    personajes = models.ImageField(blank=True)

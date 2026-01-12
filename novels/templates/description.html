@@ -19,7 +19,7 @@
       <!-- eliminamos el for -->
       <!-- Card Desscription -->
       <section class="card_details">
-        <h2 class="titulo_description">{{ novel.title }}</h2>
+        <h2 class="titulo_description">{{ novela.title }}</h2>
 
         <div class="caja_img_title">
           {% if novela.imagen_portada %}
@@ -41,6 +41,16 @@
             {% endfor %}
           </div>
         </div>
+        <!-- caja boton  -->
+        <div class="mini_box2">
+          <button class="buttom_likes">
+            {% if not novela.like %}
+            <p class="none">likes 0</p>
+            {% else %}
+            <p>Likes {{ novela.like }}</p>
+            {% endif %}
+          </button>
+        </div>
       </section>
 
       <!-- Card Text field  -->
@@ -54,18 +64,18 @@
           </section>
           <!-- Seccion de los botones " editar y Leer prologo "  -->
           <section class="mini_box2">
-            <button class="buttom_description_purple">
-              <a href="{% url 'novels:prologue' novela.id %}">Leer prologo</a>
-            </button>
-            <button class="buttom_description_gray">
-              <a href="{% url 'novels:update' novela.id %}">Editar</a>
-            </button>
+            <a href="{% url 'novels:prologue' novela.id %}">
+              <button class="buttom_description_purple">Leer prologo</button>
+            </a>
+            <a href="{% url 'novels:update' novela.id %}">
+              <button class="buttom_description_gray">Editar</button>
+            </a>
           </section>
         </div>
         <!-- Parte de abajo-->
         <div class="text_description">
           <div class="text">
-            <p>{{ novela.text_description }}</p>
+            <p class="none">{{ novela.text_description }}</p>
           </div>
         </div>
       </section>
