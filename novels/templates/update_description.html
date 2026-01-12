@@ -17,4 +17,9 @@
   <!---->
   <button class="buttom_save" type="submit">Guardar</button>
 </form>
+<div>
+  <a href="{% url 'novels:delete' description.id %}">
+    <button class="buttom_save">Eliminar</button>
+  </a>
+</div>
 {% endblock %}
