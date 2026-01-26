@@ -13,7 +13,7 @@
   {{message}}
 
   <div class="contenedor-father">
-    <form method="POST" action="{% url 'login:login' %}">
+    <form method="POST">
       {% csrf_token %} {{ form.non_field_errors }}
 
       <label>Username</label>

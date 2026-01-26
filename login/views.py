@@ -3,28 +3,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login as auth_login
 from login.forms import SignIn, SingUp
+from django.views.generic import CreateView, View
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # from django.http import HttpResponse
 
 # Create your views here.
 
 
-def login(request):
-    if request.method == 'GET':
-        form = SingUp()
-        return render(request, "login/login.html", {"form": form})
-
-    if request.method == "POST":
-        form = SingUp(request.POST)
-        if form.is_valid():
-            user = form.save()
-            auth_login(request, user)
-            return redirect("home:home")
-        else:
-            return render(request, "login/login.html", {"form": form})
-    else:
-        form = SingUp()
-        return render(request, "login/login.html", {"form": form})
+class Registrate(CreateView):
+    form_class = SingUp
+    template_name = 'login/login.html'
+    success_url = reverse_lazy('home:home')
 
 
 def signout(request):
