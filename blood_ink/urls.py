@@ -28,6 +28,7 @@ urlpatterns = [
     ),
     path("login/", include("login.urls", namespace="login")),
     path("novels/", include("novels.urls", namespace="novels")),
+    path("games/", include("game.urls", namespace="game")),
 ]
 if settings.DEBUG:
     urlpatterns += static(

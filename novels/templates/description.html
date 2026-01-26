@@ -43,6 +43,11 @@
         </div>
         <!-- caja boton  -->
         <div class="mini_box2">
+          <!-- Boton de Inicio de juego -->
+          <a href="{% url 'game:game' %}">
+            <button>¡Comenzar!</button>
+          </a>
+          <!-- Boton de likes -->
           <button class="buttom_likes">
             {% if not novela.like %}
             <p class="none">likes 0</p>

@@ -3,11 +3,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login as auth_login
 from login.forms import SignIn, SingUp
-from django.views.generic import CreateView, View
+from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.contrib.auth.mixins import LoginRequiredMixin tal vez se utilize en futuras ocaciones, esta vista sirve para restringir ñas vistas al que un usario no autenticado puede ver
 
-# from django.http import HttpResponse
 
 # Create your views here.
 

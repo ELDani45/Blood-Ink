@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     "home",
     "login",
     "novels",
+    'game',
 ]
 
 MIDDLEWARE = [
