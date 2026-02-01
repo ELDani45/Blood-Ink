@@ -1,4 +1,5 @@
 from django.db import models
+from game.models import Novel_game
 
 # Create your models here.
 # Que es un modelo: es una clase de pytohn que representa una tabla de nuestra base de datos.
@@ -46,6 +47,9 @@ class CreationDate(models.Model):
 
 
 class Description(CreationDate):
+    # Novela = aqui traemos las escenas, personajes y demás
+    novel = models.OneToOneField(
+        'game.Novel_game', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=50)
     genero = models.ManyToManyField(Genero)
     text_description = models.TextField(max_length=600)

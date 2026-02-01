@@ -44,9 +44,19 @@
         <!-- caja boton  -->
         <div class="mini_box2">
           <!-- Boton de Inicio de juego -->
-          <a href="{% url 'game:game' %}">
-            <button>¡Comenzar!</button>
-          </a>
+          <!--Revisar-->
+          <div class="mini_box2">
+            {% if novela.novel %}
+            <a href="{% url 'game:game' novela.novel.id %}">
+              <button>¡Comenzar!</button>
+            </a>
+            {% else %}
+            <button disabled style="background-color: gray">
+              Juego no disponible
+            </button>
+            {% endif %}
+          </div>
+
           <!-- Boton de likes -->
           <button class="buttom_likes">
             {% if not novela.like %}
