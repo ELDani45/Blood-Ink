@@ -15,6 +15,10 @@ label {
     font-weight: bold;
     font-size: 1.1rem;
 }
+p{
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .form-container {
     background-color: #202020;

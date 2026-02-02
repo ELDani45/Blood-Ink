@@ -15,23 +15,49 @@
 
   <form class="form-container" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+    <!-- mostrar errores de form -->
+    {{ form_Novel.non_field_errors }}
     <label>Titulo</label>
-    <div class="titulo-description">{{ form_Novel.title }}</div>
+    <div class="titulo-description">
+      {{ form_Novel.title }}
+      <!---->
+      {{ form_Novel.title.errors }}
+    </div>
 
     <label>Generos</label>
-    <div class="genero-description">{{ form_Novel.genero}}</div>
+    <div class="genero-description">
+      {{ form_Novel.genero}}
+      <!--  -->
+      {{ form_Novel.genero.errors }}
+    </div>
 
     <label>Descripción</label>
-    <div class="text_description">{{ form_Novel.text_description}}</div>
+    <div class="text_description">
+      {{ form_Novel.text_description}}
+      <!--  -->
+      {{ form_Novel.text_description.errors }}
+    </div>
 
     <label>Prologo</label>
-    <div class="titulo-description">{{ form_Novel.prologo}}</div>
+    <div class="titulo-description">
+      {{ form_Novel.prologo}}
+      <!---->
+      {{ form_Novel.prologo.errors }}
+    </div>
 
     <label>Autores</label>
-    <div class="genero-description">{{ form_Novel.author}}</div>
+    <div class="genero-description">
+      {{ form_Novel.author }}
+      <!---->
+      {{ form_Novel.author.errors }}
+    </div>
 
     <label>Portada</label>
-    <div class="portada-description">{{ form_Novel.imagen_portada }}</div>
+    <div class="portada-description">
+      {{ form_Novel.imagen_portada }}
+      <!---->
+      {{ form_Novel.imagen_portada.errors }}
+    </div>
 
     <button class="buttom_save" type="submit">Guardar</button>
   </form>

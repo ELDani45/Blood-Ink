@@ -1,15 +1,35 @@
-{% block css_extra %}
-<link rel="stylesheet" href="" />
-{% endblock %}
-<!---->
 {% load static %}
 <!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/game.css' %}" />
+{% endblock %}
+<!---->
 {% block content %}
-<main>
-  <h1>Inicio de juego</h1>
+<body>
+  <span class="span"> Pege {{ scene.object_list.0.scene_number }} </span>
   <!-- incio juego -->
-  <div>
-    <h3>Aqui va el juego</h3>
+  <div class="pagination">
+    <!-- imagen de fondo y inicio de la visual novel -->
+    {% if scene.object_list %}
+    <img
+      src="{{ scene.object_list.0.background_scene.url }}"
+      alt="imagen de goku"
+    />
+    {% endif %}
+    <!-- final de la imagen fondo -->
+
+    <!-- Aqui inician los botones que estan sobre la imagenes -->
+    <div class="controls">
+      {% if scene.has_previous %}
+      <a class="botons" href="?page={{ scene.previous_page_number }}">Atrás</a>
+      {% endif %}
+      <!---->
+      {% if scene.has_next %}
+      <a class="botons" href="?page={{ scene.next_page_number }}">Siguiente</a>
+      {% endif %}
+      <a class="botons" href="{% url 'home:home' %}">menu</a>
+    </div>
+    <!-- final del sectino de botones -->
   </div>
-</main>
+</body>
 {% endblock %}

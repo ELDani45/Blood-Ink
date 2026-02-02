@@ -19,11 +19,14 @@ def hacer_novel(request):
         if form.is_valid():
             form.save()
             return redirect('home:home')
+        else:
+            print(form.errors)
     else:
         form = Makenovel()
-        return render(request, "make_novel.html", {
-            'form_Novel': form
-        })
+
+    return render(request, "make_novel.html", {
+        'form_Novel': form
+    })
 
 
 def update_description(request, id_description=None) -> object:
