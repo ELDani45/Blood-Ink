@@ -1,6 +1,4 @@
 from django.db import models
-from game.models import Novel_game
-
 # Create your models here.
 # Que es un modelo: es una clase de pytohn que representa una tabla de nuestra base de datos.
 

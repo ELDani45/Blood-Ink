@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Description
+from django.shortcuts import get_object_or_404, redirect, render
 from novels.forms import Makenovel
-
+from .models import Description
 
 # Create your views here."
 

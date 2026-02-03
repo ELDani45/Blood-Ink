@@ -18,6 +18,12 @@
     {% endif %}
     <!-- final de la imagen fondo -->
 
+    <!-- Inicio perosnaje de la novela -->
+    {% for personaje in novel.character.all %}
+    <div class="characther">
+      <img src="{{ personaje.characters_body.url }}" alt="personaje" />
+    </div>
+    {% endfor %}
     <!-- Aqui inician los botones que estan sobre la imagenes -->
     <div class="controls">
       {% if scene.has_previous %}
