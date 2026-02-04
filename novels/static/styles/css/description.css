@@ -57,10 +57,10 @@ main{
 .mini_box2{
     display: flex;          
     justify-content: flex-end; 
-    gap: 10px;              
+    gap: 25px;              
     margin-left: auto;     
     width: 300px;           
-    margin-top: 20px;
+    margin-top: 10px;
     margin-right: 42px;
 }
 
@@ -109,6 +109,24 @@ main{
 .buttom_likes{
     width: 90px;
     font-size: 17px;
+    padding: 5px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: #7335DD;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    display: inline-block;
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),     
+        0 2px 4px rgba(0, 0, 0, 0.2);          
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+.button_play_game{
+    width: 90px;
+    font-size: 18px;
     padding: 6px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
@@ -122,6 +140,7 @@ main{
         inset 0 -1px 0 rgba(0, 0, 0, 0.1),     
         0 2px 4px rgba(0, 0, 0, 0.2);          
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 .buttom_description_gray{
     width: 105px;

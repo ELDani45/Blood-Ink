@@ -1,5 +1,12 @@
 main{
-    background-color: #060609;
+    background-image: url('/media/portadas/imganen_de_fondo_blook_ink.jpeg'); 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    min-height: 760px;
+    margin: 0;
+    width:100%;
+
+    background-color: #000000;
     color: whitesmoke;
     font-family: Arial, sans-serif; /* Usar una fuente similar a la imagen */
     display: flex;
@@ -23,7 +30,8 @@ form{
 }
 
 .contenedor-father{
-    background-color: #0000002a;
+    
+    background-color: rgba(0, 0, 0, 0.523);
     padding: 35px;
     padding-bottom: 30px;
     border-radius: 10px;
@@ -73,23 +81,29 @@ form{
     background-color: #7335DD;
     font-size: 25px;
 }
-/* #id_password2{
-    height: 30px;
-    border: 2px solid #7335DD ;
+.titulo{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffffff;
+    font-weight: 1500;
+    padding: 10px;
+    padding-left: 140px;
+    padding-right: 140px;
+    background-color: rgba(0, 0, 0, 0.523) ;
+    box-shadow: inset 8px 30px 60px #7335dd5d, 
+                inset -8px -8px 16px #7335dd5d;
     border-radius: 10px;
-    background-color: #060609;
-    color: white;
-    width: 100%;
-    color: whitesmoke;
-    font-size: 20px;
 }
-#id_password1{
-    height: 30px;
-    border: 2px solid #7335DD ;
+.titulo2{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffffff;
+    font-weight: 1500;
+    padding: 10px;
+    padding-left: 75px;
+    padding-right: 75px;
+    background-color: rgba(0, 0, 0, 0.523) ;
+    box-shadow: inset 8px 30px 60px #7335dd5d, 
+                inset -8px -8px 16px #7335dd5d;
     border-radius: 10px;
-    background-color: #060609;
-    color: white;
-    width: 100%;
-    color: whitesmoke;
-    font-size: 20px;
-} */
+}

@@ -26,11 +26,13 @@ body{
     margin: 30px;
     width: 350px;
     height: auto;
-    background-color: #242424;
+    background-color: rgba(0, 0, 0, 0.523);
     border-radius: 15px;
     border: 2px, solid #35235C;
     box-shadow: 10px 10px 50px 5px #35235C;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    box-shadow: inset 8px 30px 60px #7335dd5d, 
+                inset -8px -8px 16px #7335dd5d;
 
 }
 

@@ -11,7 +11,7 @@
 {% block content %}
 
 <main>
-  <h1>Iniciar sesión</h1>
+  <h1 class="titulo2">Iniciar sesión</h1>
   {{ message }}
   <div class="contenedor-father">
     <!-- inicio del formulario -->
@@ -19,7 +19,7 @@
       {% csrf_token %}
       <!-- Este es el contenedor de username -->
       <div class="container-username">
-        <label>Username</label>
+        <label>Nombre de ususario</label>
         <!-- espacio -->
         {{ form.username }}
       </div>
@@ -31,12 +31,12 @@
       </div>
       <!-- Este es el contenedor del Password -->
       <div class="container-password">
-        <label>Password</label>
+        <label>Contraseña</label>
         <!-- espacio -->
         {{ form.password }}
       </div>
       <div class="container-password">
-        <button class="buttom_sesion">Guardar</button>
+        <button class="buttom_sesion">Iniciar sesión</button>
       </div>
     </form>
   </div>

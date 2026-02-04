@@ -1,9 +1,8 @@
+/* Prologo Page: */
 .body_prologue{
     background-image: url('/media/portadas/imganen_de_fondo_blook_ink.jpeg'); 
     background-repeat: no-repeat; 
-  
     background-position: center; 
-    /* background-attachment: fixed;  */
     background-color: #000000;
     display: flex;
     flex-direction: column;
@@ -12,7 +11,6 @@
     margin: 0;
     width:100%;
 }
-/* Prologo Page: */
 .box_prologue{
     align-items: center;
     height: 500px;

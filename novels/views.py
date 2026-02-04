@@ -62,3 +62,12 @@ def novels_delete(request, id=None):
     novela = get_object_or_404(Description, id=id)
     novela.delete()
     return redirect("home:home")
+
+
+def like_view(request, id):
+    publication = get_object_or_404(Description, id=id)
+    if publication.likes.filter(id=request.user.id).exists():
+        publication.likes.remove(request.user)
+    else:
+        publication.likes.add(request.user)
+    return redirect('novels:description', id=id)

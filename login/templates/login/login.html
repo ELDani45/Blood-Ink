@@ -9,22 +9,22 @@
 {% block content %}
 
 <main>
-  <h1 class="titulo_signUp">Registrarse</h1>
+  <h1 class="titulo">Registrarse</h1>
   {{message}}
 
   <div class="contenedor-father">
     <form method="POST">
       {% csrf_token %} {{ form.non_field_errors }}
 
-      <label>Username</label>
+      <label>Nombre de usuario</label>
       {{ form.username.errors }} {{ form.username }}
       <label>Correo Electroníco</label>
       {{ form.email.errors }} {{ form.email }}
-      <label>Password</label>
+      <label>Contraseña</label>
       {{ form.password1.errors }} {{ form.password1 }}
-      <label>Confirmation</label>
+      <label>Confirmación contraseña</label>
       {{ form.password2.errors }} {{ form.password2 }}
-      <button class="buttom_sesion">SingUp</button>
+      <button class="buttom_sesion">Registrarse</button>
     </form>
   </div>
 </main>

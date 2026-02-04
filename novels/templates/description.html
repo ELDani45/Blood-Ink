@@ -46,24 +46,41 @@
           <!--Revisar-->
           <div class="mini_box2">
             {% if novela.novel %}
-            <a href="{% url 'game:game' novela.novel.id %}">
-              <button>¡Comenzar!</button>
+            <a
+              class="button_play_game"
+              href="{% url 'game:game' novela.novel.id %}"
+            >
+              Jugar
             </a>
             {% else %}
             <button disabled style="background-color: gray">
               Juego no disponible
             </button>
             {% endif %}
+
+            <!-- Aqui  empieza el boton de like -->
+            <form action="{% url 'novels:like' novela.id %}" method="POST">
+              {% csrf_token %}
+              <!---->
+              {% if user.is_authenticated %}
+              <button type="submit" class="buttom_likes">
+                {% if user in novela.likes.all %}
+                <!---->
+                Like {{ novela.get_total_likes }}
+                <!---->
+                {% else %}
+                <!---->
+                Like {{ novela.get_total_likes }}
+                <!---->
+                {% endif %}
+              </button>
+              {% else %}
+              <a href="{% url 'login:signin' %}">Inicia sesión para dar like</a>
+              {% endif %}
+            </form>
           </div>
 
           <!-- Boton de likes -->
-          <button class="buttom_likes">
-            {% if not novela.like %}
-            <p class="none">likes 0</p>
-            {% else %}
-            <p>Likes {{ novela.like }}</p>
-            {% endif %}
-          </button>
         </div>
       </section>
 

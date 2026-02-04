@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.
 # Que es un modelo: es una clase de pytohn que representa una tabla de nuestra base de datos.
 
@@ -28,10 +29,6 @@ class Author(models.Model):
         return str(self.firts_names)
 
 
-class Like(models.Model):
-    likes = models.PositiveBigIntegerField()
-
-
 class CreationDate(models.Model):
     # La diferencia entre [ auto_now_add ] y [ auto_now ] es que el atributo con add al final, no cambia la fecha desde que se añade, en cambio sin el ad al final, la fecha cambia despues de cada modificacion
     creation_date = models.DateField(auto_now_add=True)
@@ -55,14 +52,16 @@ class Description(CreationDate):
     author = models.ManyToManyField(Author)
     imagen_portada = models.ImageField(
         blank=True, upload_to="portadas/", null=True)
-    like = models.OneToOneField(
-        Like, on_delete=models.CASCADE, blank=True, null=True)
+    likes = models.ManyToManyField(
+        User, related_name='novelas_gustadas', blank=True)
 
     objects = CustomManager()
 
     def __str__(self):
         return str(self.title)
 
+    def get_total_likes(self):
+        return self.likes.count()
 
 # Pendiente : 1/ hacer el modelo de la novela en si
 
