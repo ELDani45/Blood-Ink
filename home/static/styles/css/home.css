@@ -21,6 +21,7 @@ nav{
 ul li{
     list-style: none;
     padding: 3px;
+    width: auto;
     
 }
 ul li a{
@@ -71,9 +72,9 @@ ul li a:hover {
 /* .caja_a{
     background-color: #533b88;
 } */
- .auth-links-container {
+ .auth-links-container { 
+    display: flex;              
     margin-left: auto;      
-    display: flex;          
     gap: 15px;       
-    margin-right: 30px      
+    margin-right: 30px;
 }

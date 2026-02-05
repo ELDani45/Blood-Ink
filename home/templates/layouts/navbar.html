@@ -1,6 +1,6 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,6 +24,7 @@
       />
 
       <h2 class="titulo_navbar">BLOOD-INK</h2>
+      <!-- url menu -->
       <ul>
         <li>
           <a href="{% url 'home:home' %}">Menu</a>
@@ -32,11 +33,20 @@
 
       <div class="auth-links-container">
         {% if user.is_authenticated %}
+        <!-- url cerrar sesion-->
         <ul>
           <li>
             <a href="{% url 'login:signout' %}">Cerrar sesión</a>
           </li>
         </ul>
+        <!-- url perfil -->
+
+        <ul>
+          <li>
+            <a href="{% url 'account:profile' %}">Perfil</a>
+          </li>
+        </ul>
+        <!-- url hacer novela -->
         <ul>
           <li>
             <a href="{% url 'novels:making_novel' %}">Crear Novela</a>

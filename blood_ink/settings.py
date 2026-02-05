@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     "login",
     "novels",
     'game',
+    'account'
 ]
 
 MIDDLEWARE = [
