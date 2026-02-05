@@ -28,9 +28,8 @@ body{
     height: auto;
     background-color: rgba(0, 0, 0, 0.523);
     border-radius: 15px;
-    border: 2px, solid #35235C;
-    box-shadow: 10px 10px 50px 5px #35235C;
     padding-bottom: 20px;
+    border: 2px, solid #35235C;
     box-shadow: inset 8px 30px 60px #7335dd5d, 
                 inset -8px -8px 16px #7335dd5d;
 

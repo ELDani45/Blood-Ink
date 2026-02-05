@@ -33,25 +33,27 @@
 
       <div class="auth-links-container">
         {% if user.is_authenticated %}
+        <!-- url perfil -->
+        <ul>
+          <li>
+            <a href="{% url 'account:profile' %}">Perfil</a>
+          </li>
+        </ul>
         <!-- url cerrar sesion-->
         <ul>
           <li>
             <a href="{% url 'login:signout' %}">Cerrar sesión</a>
           </li>
         </ul>
-        <!-- url perfil -->
-
-        <ul>
-          <li>
-            <a href="{% url 'account:profile' %}">Perfil</a>
-          </li>
-        </ul>
         <!-- url hacer novela -->
+        {% if user.is_superuser %}
         <ul>
           <li>
             <a href="{% url 'novels:making_novel' %}">Crear Novela</a>
           </li>
         </ul>
+        {% endif %}
+        <!---->
         {% else %}
         <ul>
           <li>
