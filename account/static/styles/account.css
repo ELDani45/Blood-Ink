@@ -2,6 +2,12 @@ body{
     background-color: #060609;
     color: whitesmoke;
 }
+/* container principal = encierra todo  */
+.box-container-main{
+    display: flex;
+    gap: 30px;
+}
+/* estilos de la caja del container profile  */
 .title-profile{
     color: whitesmoke;
     font-weight: bolder;
@@ -28,14 +34,19 @@ body{
     font-weight: bold;
     text-align: left;
 }
+.photo_profile{
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 30px
+}
 .name-and-rewards{
-    background-color: #202020;
+    background-color: rgba(0, 0, 0, 0.523);
     height: 180px;
     width: 240px;
     display: inline-block;
     margin-top: 24px;
     border-radius: 15px;
-    border: 2px solid whitesmoke;
+    border: 2px solid gray;
 }
 .de-lado{
     display: flex;
@@ -47,4 +58,44 @@ body{
     display: inline-block;
     text-align: center;
     margin-left: 20px;
+}
+/* estilos de la caja container novels  */
+
+.container-novels{
+    width: 980px;
+    height: 680px;
+    background-color: rgba(0, 0, 0, 0.523);
+    border-radius: 15px;
+    border: 2px solid #202020;
+}
+.encabezados{
+    margin-left: 30px;
+    display: flex;
+
+}
+.text-style-gris{
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    
+}
+.text-style-white{
+    color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+.text-style-stand-out{
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 5px;
+}
+.together{
+    display: flex;
+    margin-left: 580px;
+
+}
+.novels-user{
+    background-color: #202020;
+    width: 100px;
+    height: 100px;
 }

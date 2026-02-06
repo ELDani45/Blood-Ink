@@ -23,11 +23,17 @@
     <div class="box-container-main">
       <!-- Caja de perfil de usuario -->
       <div class="container-profile">
-        <!-- contenedor de foto perfil y nombre de usuario -->
-        <div class="photo-perfil">
-          <img
-            src="{{ user.profile.image_profile.url }}"
+        <!-- contenedor de foto perfil y nombre de usuario y demas descirpciones de usuario -->
+        <div >
+        <img
+        src="{{ user.profile.image_profile.url }}"
             alt="foto de perfil de usuario"
+            ,
+            height="190"
+            ,
+            width="200"
+            ,
+            class="photo_profile"
           />
         </div>
         <!-- nombre de usuario de y renociminetos  -->
@@ -44,14 +50,23 @@
           </div>
         </div>
       </div>
-    </div>
+      <!-- box novelas de usuario -->
+      <div class="container-novels">
+        <!-- Esta es la parte de arriba = donde se encuetra biblioteca y novelas hechas por: Nombre de ususario -->
+        <section class="encabezados">
+          <p class="text-style-gris">Biblioteca</p>
+          <div class="together">
+            <p class="text-style-white">
+              * Novelas hechas por: <p class="text-style-stand-out">{{ user.username }}</p> 
+            </p>
+          </div>
+        </section>
+        <!-- NOVELAS CREADAS POR EL USUARIO -->
+        <div class="novels-user">
 
-    <!-- elementos de prueba -->
-    <ul>
-      <li>¿El usuario tiene perfil?: {{ user.profile|yesno:"Sí,No" }}</li>
-      <li>Ruta completa de la imagen: {{ user.profile.image_profile.name }}</li>
-      <li>URL que genera Django: {{ user.profile.image_profile.url }}</li>
-    </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 {% endblock %}

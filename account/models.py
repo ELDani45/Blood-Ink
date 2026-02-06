@@ -9,7 +9,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name='profile')
     image_profile = models.ImageField(
         upload_to='profiles_images',
-        default='profiles_images/default.png',
+        default='profiles_images/icono-de-foto-perfil-predeterminada-en-alta-resolución-360167031.webp',
         blank=True
     )
     social_network = models.TextField(max_length=20, blank=True)
@@ -22,5 +22,5 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def manage_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
-    instance.profile.save()
+        Profile.objects.create(user=instance)  # pylint: disable=no-member
+        instance.profile.save()

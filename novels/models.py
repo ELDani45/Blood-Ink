@@ -20,15 +20,6 @@ class Genero(models.Model):
     objects = CustomManager()
 
 
-class Author(models.Model):
-    firts_names = models.CharField('Nombres del Autor', max_length=100)
-    lasts_names = models.CharField('Apellidos del Autor', max_length=100)
-    age = models.PositiveBigIntegerField(verbose_name='Edad')
-
-    def __str__(self):
-        return str(self.firts_names)
-
-
 class CreationDate(models.Model):
     # La diferencia entre [ auto_now_add ] y [ auto_now ] es que el atributo con add al final, no cambia la fecha desde que se añade, en cambio sin el ad al final, la fecha cambia despues de cada modificacion
     creation_date = models.DateField(auto_now_add=True)
@@ -49,7 +40,7 @@ class Description(CreationDate):
     genero = models.ManyToManyField(Genero)
     text_description = models.TextField(max_length=600)
     prologo = models.TextField(max_length=100)
-    author = models.ManyToManyField(Author)
+    author = models.ManyToManyField(User, related_name='user')
     imagen_portada = models.ImageField(
         blank=True, upload_to="portadas/", null=True)
     likes = models.ManyToManyField(
