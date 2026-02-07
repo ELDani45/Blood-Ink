@@ -63,8 +63,37 @@
         </section>
         <!-- NOVELAS CREADAS POR EL USUARIO -->
         <div class="novels-user">
-
+          <!-- Aqui estamos llamando todos los elementos de descripcion de una novela -->
+          {% for novela in description %}
+           <div class="card-novel">
+             <img class="portada" src="{{ novela.imagen_portada.url }}" alt="imagen portada de novela">
+             <p class="title-novel">
+              {{ novela.title }}
+            </p>
+            <div class="al-lado">
+              <div >
+                <!-- boton de me gusta -->
+                {% if novela.likes.all %}
+                <img class="boton-like" src="/media/profiles_images/boton-me-gusta.png" alt="boton de me gusta", height=20", width="20">
+                  {{ novela.get_total_likes }}
+                {% endif %}         
+              </div>
+                <button>
+                Leer
+              </button>
+            </div>
+            <!-- fecha creacion de novela -->
+            <p class="date">
+              {{ novela.creation_date }}
+            </p>
+           </div>
+           <!-- Aparecera esta caja si el usuario no tiene novelas -->
+           {% empty %} 
+           <div class="user-no-novels"> <!-- PENDIENTE -->
+            <p>El usuario no ha creado aún una novela </p>
+          </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </body>
