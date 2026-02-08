@@ -143,3 +143,6 @@ body{
     margin-top: 10px;
     border-radius: 15px;
 }
+.titulo-and-botones-edit{
+    display: flex;
+}

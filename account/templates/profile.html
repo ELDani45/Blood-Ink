@@ -16,8 +16,9 @@
   </head>
   <body>
     <!-- caja de titulo y botones de editar busqueda de novelas  -->
-    <div>
+    <div class="titulo-and-botones-edit">
       <h1 class="title-profile">Perfil de usuario</h1>
+      <a href="{% url 'account:update' user.pk %}">Editar</a>
     </div>
     <!-- caja-padre = contiene los contendores de perfil y novelas  -->
     <div class="box-container-main">
