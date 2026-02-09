@@ -3,7 +3,7 @@
 {% load static %}
 <!---->
 {% block css_extra %}
-<link rel="stylesheet" href="{% static 'styles/upload.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/actualizar_profile.css' %}" />
 {% endblock %}
 <!---->
 {% block content %}
@@ -11,6 +11,26 @@
   <h1>Actualizar perfil</h1>
 </head>
 <main>
-  <div class="box-main-upload_profile"></div>
+  <div class="box-main-upload_profile">
+    <!-- Inicio del formulario -->
+    <form action="POST">
+      {% csrf_token %}
+      <!---->
+      {{ user_fields.non_field_errors }}
+      <!-- NOTA: errores de ususario: pendiente por investigar como se llama los errores teniendo en cuenta que estamos llamando dos formularios en la vista -->
+      <!---->
+      <section class="input-username">
+        <!-- cambko de nombre de usuario  -->
+        <label>Nombre de usuario</label>
+        {{ user_fields.username }}
+      </section>
+      <!-- cambio de red social de usuario -->
+      <section>
+        <label>Red social</label>
+        {{ form.social_network }}
+      </section>
+      <!---->
+    </form>
+  </div>
 </main>
 {% endblock %}

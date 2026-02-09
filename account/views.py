@@ -3,6 +3,8 @@ from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.models import User
 from novels.models import Description
 from account.models import Profile
+from login.forms import SingUp
+from account.forms import Form_edit_profile
 
 # from django.shortcuts import get_object_or_404
 # Create your views here.
@@ -24,12 +26,17 @@ class Profie(DetailView):
 
 class Update_profile(UpdateView):
     model = Profile
-    fields = ['user', 'image_profile', 'social_network', 'about_me']
+    form_class = Form_edit_profile
     template_name = 'act_profile.html'
+    # NOTA: cambiar la redireccion del usuarrio [ de home a = profile]
     success_url = 'home:home'
     context_object_name = 'perfil'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user_fields'] = User.objects.all()
+        context['user_fields'] = SingUp()
         return context
+
+# NOtA : para llamar los campos de del formulario de update
+# se hace con la variable predetermianda de django ' form '
+# REVISAR EL TEMPLATE =  ' ct_profile.html '
