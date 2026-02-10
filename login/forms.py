@@ -6,7 +6,7 @@ from account.models import Profile
 
 class SignIn(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input'
+        'class': 'input', 'placeholder': 'Nickname'
     }))
     email = forms.EmailField(widget=forms.EmailInput(attrs={
         'class': 'input'
@@ -19,10 +19,10 @@ class SignIn(AuthenticationForm):
 
 class SingUp (UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input'
+        'class': 'input', 'placeholder': 'nickname'
     }))
     email = forms.EmailField(widget=forms.EmailInput(attrs={
-        'class': 'input'
+        'class': 'input', 'placeholder': 'xxx@gmail.com'
     }))
 
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
