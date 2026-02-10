@@ -11,6 +11,9 @@
   <h1>Actualizar perfil</h1>
 </head>
 <main>
+  <div class="">
+    <h2>Atualizacao de foto deperfil de usuario</h2>
+  </div>
   <div class="box-main-upload_profile">
     <!-- Inicio del formulario -->
     <form action="POST">
@@ -18,18 +21,44 @@
       <!---->
       {{ user_fields.non_field_errors }}
       <!-- NOTA: errores de ususario: pendiente por investigar como se llama los errores teniendo en cuenta que estamos llamando dos formularios en la vista -->
-      <!---->
+      <!-- cambko de nombre de usuario  -->
       <section class="input-username">
-        <!-- cambko de nombre de usuario  -->
-        <label>Nombre de usuario</label>
+        <label>Nombre de usuario</label> <br />
         {{ user_fields.username }}
+      </section>
+      <section class="input-email">
+        <label>Correo electroníco</label> <br />
+        {{ user_fields.email }}
       </section>
       <!-- cambio de red social de usuario -->
       <section>
-        <label>Red social</label>
+        <label>Red social</label> <br />
         {{ form.social_network }}
       </section>
-      <!---->
+      <!-- Input de about me  -->
+      <section>
+        <label>Acerca de mi</label>
+        {{ form.about_me }}
+      </section>
+      <!-- generos favoritos  -->
+      <section>
+        <label>Generos favoritos</label>
+        <ul class="lista-generos">
+          {% for checkbox in form.favorite_genes %}
+          <li>
+            {{ checkbox.tag }}
+            <!-- El cuadrito -->
+            <label for="{{ checkbox.id_for_label }}"
+              >{{ checkbox.choice_label }}</label
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <!-- boton de save -->
+      <a class="" href="">
+        <button>Guardar</button>
+      </a>
     </form>
   </div>
 </main>

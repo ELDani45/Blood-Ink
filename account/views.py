@@ -1,10 +1,11 @@
 # from django.shortcuts import render
-from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.models import User
-from novels.models import Description
+from django.views.generic import DetailView, UpdateView
+
+from account.forms import Form_edit_profile
 from account.models import Profile
 from login.forms import SingUp
-from account.forms import Form_edit_profile
+from novels.models import Description
 
 # from django.shortcuts import get_object_or_404
 # Create your views here.
