@@ -11,12 +11,24 @@
   <h1>Actualizar perfil</h1>
 </head>
 <main>
-  <div class="">
-    <h2>Atualizacao de foto deperfil de usuario</h2>
+  <div class="box-main-update-left">
+    <div class="box-image-profile">
+      <img
+        class="image_profile"
+        src="{{ user.profile.image_profile.url }}"
+        alt="imagen de perfil de usuario"
+        ,
+        height="250px"
+        ,
+        width="250px"
+      />
+    </div>
+    <br />
   </div>
-  <div class="box-main-upload_profile">
-    <!-- Inicio del formulario -->
-    <form action="POST">
+
+  <div class="box-main-upload_profile-right">
+    <!-- Inicio del formulario, parte derecha de la pantalla  -->
+    <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <!---->
       {{ user_fields.non_field_errors }}
@@ -68,10 +80,14 @@
           </ul>
         </section>
       </div>
+      <!-- seccion de cambio de imagen  -->
+      <label class="label-image-profile">Foto de perfil</label>
+      <div class="edit_image_profile">
+        <!-- Boton de edicion de la foto de perfil de usuario -->
+        {{ form.image_profile }}
+      </div>
       <!-- boton de save -->
-      <a " href="">
-        <button class="buttom_save">Guardar</button>
-      </a>
+      <button type="submit" class="buttom_save">Guardar</button>
     </form>
   </div>
 </main>

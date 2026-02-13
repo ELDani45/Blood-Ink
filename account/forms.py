@@ -23,7 +23,7 @@ class Form_edit_profile(forms.ModelForm):
                 'placeholder': 'maximo 200 caracteres'
             }),
             'image_profile': forms.ClearableFileInput(attrs={
-                'class': 'genres-grid'
+                'class': 'image_profile_input'
             }),
 
 

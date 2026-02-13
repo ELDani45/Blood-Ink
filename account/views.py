@@ -33,6 +33,10 @@ class Update_profile(UpdateView):
     success_url = 'home:home'
     context_object_name = 'perfil'
 
+    # por defecto django busca el pk que uno le pasa en la url, pero al definir la funcion [ get_object ] = uno puede definir como la plantilla busca el objeto
+    def get_object(self, queryset=None):
+        return Profile.objects.get(user=self.request.user)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user_fields'] = SingUp()
