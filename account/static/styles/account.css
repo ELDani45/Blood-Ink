@@ -25,8 +25,13 @@ body{
     border: 2px, solid #35235C;
     box-shadow: inset 8px 10px 30px #7335dd5d, 
                 inset -8px -8px 16px #7335dd5d;
-    display: flex;
+    display: inline-block;
     gap: 20px;
+    justify-content:center ;
+
+}
+.flex{
+    display: flex;
 }
 .user-name{
     font-family: Arial, Helvetica, sans-serif;
@@ -173,4 +178,7 @@ body{
     align-items: center;
     margin-bottom: 10px;
     
+}
+.container-biografia.usuari{
+    justify-content: center;
 }

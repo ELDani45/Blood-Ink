@@ -12,6 +12,7 @@
 </head>
 <main>
   <div class="box-main-update-left">
+    {% if user.image.profile %}
     <div class="box-image-profile">
       <img
         class="image_profile"
@@ -23,6 +24,19 @@
         width="250px"
       />
     </div>
+    {% else %}
+    <div class="box-main-update-left">
+      <img
+        src="/media/profiles_images/default.png"
+        alt="imagen por defecto del usuario cuando no tiene foto de perfil "
+        class="image_profile"
+        ,
+        width="250px"
+        ,
+        height="250px"
+      />
+    </div>
+    {% endif %}
     <br />
   </div>
 

@@ -6,7 +6,7 @@ from django import forms
 # Estamos creando esye modelo separado de user para crear los cmapos del modelo User, y colocarle el { required = False }, si le colocamos este atributo al otro modelo de signup esto provocaria que los ususarios tambien se pudieran registrar a la pagina sin un nombre de usuario
 
 
-class FormUserEdit(forms.Form):
+class FormUserEdit(forms.ModelForm):
     username = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'input', 'placeholder': 'nickname'
     }))

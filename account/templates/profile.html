@@ -29,31 +29,46 @@
       <!-- Caja de perfil de usuario -->
       <div class="container-profile">
         <!-- contenedor de foto perfil y nombre de usuario y demas descirpciones de usuario -->
-        <div >
-        <img
-        src="{{ user.profile.image_profile.url }}"
-            alt="foto de perfil de usuario"
-            ,
-            height="190"
-            ,
-            width="200"
-            ,
-            class="photo_profile"
-          />
-        </div>
-        <!-- nombre de usuario de y renociminetos  -->
-        <div class="name-and-rewards">
-          <!-- etilo uno de bajo de otro -->
-          <div class="bloque">
-            <p class="user-name">{{ user.username }}</p>
-            <p>@doña_lulu</p>
+         <div class="flex"> <!-- esto fue solo para que el se acomodaran correctamente los bloques -->
+           {% if user.profile.image_profile %}
+          <div >
+          <img
+          src="{{ user.profile.image_profile.url }}"
+              alt="foto de perfil de usuario"
+              ,
+              height="190"
+              ,
+              width="200"
+              ,
+              class="photo_profile"
+            />
           </div>
-          <!-- etilo uno al lado de otro -->
-          <div class="de-lado">
-            <p>Dias Racha: 25</p>
-            <p>* Veterano</p>
+          {% else %}
+          <div>
+            <img class="photo_profile", src="/media/profiles_images/default.png" alt="foto de perfil cuando el usuario no tiene pfoto de perfil", width="200", height="190">
+  
+          </div>
+          {% endif %}
+          <!-- nombre de usuario de y renociminetos  -->
+          <div class="name-and-rewards">
+            <!-- etilo uno de bajo de otro -->
+            <div class="bloque">
+              <p class="user-name">{{ user.username }}</p>
+              <p>@doña_lulu</p>
+            </div>
+            <!-- etilo uno al lado de otro -->
+            <div class="de-lado">
+              <p>Dias Racha: 25</p>
+              <p>* Veterano</p>
+            </div>
           </div>
         </div>
+        <!-- Aqui empieza la parte de abajo de la card del perfil -->
+        <!-- campo del biogafia del ususario  -->
+       <div class="container-biografia.usuario">
+        <p>{{ user_profile.about_me }}</p>
+       </div>
+        
       </div>
       <!-- box novelas de usuario -->
       <div class="container-novels">
@@ -100,6 +115,13 @@
         </div>
         {% endfor %}
       </div>
+      <!-- errores  -->
+       {% if form.errors %}
+    <div style="color: red;">
+        <strong>Errores encontrados:</strong>
+        {{ form.errors }}
+    </div>
+{% endif %}
     </div>
   </body>
 </html>
