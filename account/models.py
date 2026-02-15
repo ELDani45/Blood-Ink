@@ -24,5 +24,5 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def manage_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)  # pylint: disable=no-member
+        Profile.objects.create(user=instance)
         instance.profile.save()
