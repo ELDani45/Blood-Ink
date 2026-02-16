@@ -16,6 +16,7 @@ class Profile(models.Model):
     about_me = models.CharField(max_length=200, blank=True)
     favorite_genes = models.ManyToManyField(
         'novels.Genero', related_name='generos', blank=True)
+    pronoun = models.CharField(max_length=20, blank=True)
 
     def __str__(self):
         return str(self.user)

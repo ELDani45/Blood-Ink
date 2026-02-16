@@ -18,6 +18,8 @@ class FormUserEdit(forms.ModelForm):
         model = User
         fields = ('username', 'email',)
 
+# FORM DE PROFILE
+
 
 class Form_edit_profile(forms.ModelForm):
     favorite_genes = forms.ModelMultipleChoiceField(queryset=Genero.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={
@@ -27,7 +29,7 @@ class Form_edit_profile(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['social_network', 'about_me',
-                  'image_profile', 'favorite_genes']
+                  'image_profile', 'favorite_genes', 'pronoun']
         widgets = {
             'social_network': forms.TextInput(attrs={
                 'class': 'social_network_input',
@@ -41,6 +43,10 @@ class Form_edit_profile(forms.ModelForm):
             'image_profile': forms.ClearableFileInput(attrs={
                 'class': 'image_profile_input'
             }),
+            'pronoun': forms.TextInput(attrs={
+                'class': 'social_network_input',
+                'placeholder': 'pronombre'
+            })
         }
 
     def __init__(self, *args, **kwargs):

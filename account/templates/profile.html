@@ -53,10 +53,25 @@
           <div class="name-and-rewards">
             <!-- etilo uno de bajo de otro -->
             <div class="bloque">
-              <p class="user-name">{{ user.username }}</p>
-              <p>@doña_lulu</p>
+              <div class="user-name">{{ user.username }}</div>
+              <!-- pronombre de usuario -->
+               {% if user_profile.pronoun %}
+              <div class="pronoun">{{ user_profile.pronoun }}</div>
+              {% else %}
+              <div class="pronoun">Pronoun</div>
+              {% endif %}
+              <!-- Inicio de social netwrk section -->
+              {% if user_profile.social_network %}
+              <div class="social">{{ user_profile.social_network }}</div>
             </div>
+            {% else %}
+            <div class="bloque">
+              <p class="user-name">{{ user.username }}</p>
+              <p>@usxrname</p>
+            </div>
+            {% endif %}
             <!-- etilo uno al lado de otro -->
+             <!-- racha -->
             <div class="de-lado">
               <p>Dias Racha: 25</p>
               <p>* Veterano</p>
@@ -65,9 +80,16 @@
         </div>
         <!-- Aqui empieza la parte de abajo de la card del perfil -->
         <!-- campo del biogafia del ususario  -->
-       <div class="container-biografia.usuario">
-        <p>{{ user_profile.about_me }}</p>
+        {% if user_profile.about_me %}
+       <div class="container-biografia-usuario">
+         <p class="biogafia-text">biografia</p>
+         <div class="biogafia">{{ user_profile.about_me }}</div>
+      </div>
+       {% else %}
+       <div class="container-biografia-usuario">
+        <p>Sin biografia</p>
        </div>
+       {% endif %}
         
       </div>
       <!-- box novelas de usuario -->
@@ -91,14 +113,14 @@
               {{ novela.title }}
             </p>
             <div class="al-lado">
-              <div >
+              <div class="flex" >
                 <!-- boton de me gusta -->
                 {% if novela.likes.all %}
-                <img class="boton-like" src="/media/profiles_images/boton-me-gusta.png" alt="boton de me gusta", height=20", width="20">
-                  {{ novela.get_total_likes }}
+                <img class="boton-like" src="/media/profiles_images/simple-like-icon-the-icon-can-be-used-for-websites-print-templates-presentation-templates-illustrations-etc-free-vector-removebg-preview (2).png" alt="boton de me gusta", height=35", width="35">
+                  <p class="like">{{ novela.get_total_likes }}</p>
                 {% endif %}         
               </div>
-                <button>
+                <button class="buttom_read">
                 Leer
               </button>
             </div>
