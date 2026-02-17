@@ -137,24 +137,29 @@ h1{
     align-items: center;
 }
 /* Parte izquierda del template */
-.box-main-update-left{
+.box-main-update-left {
     background-color: rgba(0, 0, 0, 0.523);
-    width: 500px;
+    width: 420px;
     height: 530px;
     border: 2px solid gray;
     border-radius: 15px;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column; /* Alinea de arriba hacia abajo */
+    align-items: center;    /* Centra la foto horizontalmente */
+    padding-top: 20px;      /* Espacio pequeño arriba */
+}
+
+#photo{
+    border-radius: 10px;
 }
 .box-image-profile{
-    margin-left: 120px;
     margin-top: 30px;
+    border-radius: 10px;
 }
 .image_profile{
-    border-radius: 15px;
     border: 2px solid #888888;
-    margin-left: 120px;
     margin-top: 20px;
+    border-radius: 10px;
 }
 .edit_image_profile{
     color: #7335DD;
@@ -163,11 +168,11 @@ h1{
     text-align: center;
     width: 520px;
     justify-content: center;
-    margin-left: 80px;
     font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 20px;
     border-radius: 10px;
+    margin-left: 85px;
 }
 #id_image_profile{
     color: whitesmoke;
@@ -179,4 +184,9 @@ h1{
     margin-top: 20px;
     font-family: 20px;
     
+}
+.error-geners{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(77, 18, 18);
+    font-weight: bold;
 }

@@ -1,4 +1,4 @@
-body{
+main{
     background-color: #060609;
     color: whitesmoke;
 }
@@ -21,7 +21,8 @@ p{
 }
 .container-profile{
     width: 500px;
-    height: 500px;
+    height: 550px;
+    max-width: 520px;
     margin-left: 40px;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.523);
@@ -246,4 +247,13 @@ p{
     font-weight: bold;
     margin-left: 20px;
     margin-top: 5px;
+}
+.favorite_categories{
+    width: 454px;
+    height: auto;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    background-color: #202020;
+    margin-top: 10px;
 }

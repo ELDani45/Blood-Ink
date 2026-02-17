@@ -53,4 +53,13 @@ class Form_edit_profile(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].required = False
+
+    def clean_favorite_genes(self):
+        geners = self.cleaned_data.get('favorite_genes')
+        if geners:
+            cantidad = geners.count()
+            if cantidad > 3:
+                raise forms.ValidationError(
+                    f'Elegistes {cantidad} y el maximo de generos favoritos son 3')
+        return geners
 # Nota no se estan editandolos campos del ususario

@@ -1,150 +1,139 @@
 {% extends 'layouts/navbar.html' %}
 <!---->
 {% load static %}
-<!---->
+<!-- -->
 {% block css_extra %}
 <link rel="stylesheet" href="{% static 'styles/account.css' %}" />
 {% endblock %}
 <!---->
 {% block content %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>perfil</title>
-  </head>
-  <body>
-    <!-- caja de titulo y botones de editar busqueda de novelas  -->
-    <div class="titulo-and-botones-edit">
-      <h1 class="title-profile">Perfil de usuario</h1>
-      <a class="button_edit"  href="{% url 'account:update' user.pk %}">
-        <button class="buttom_edit">     
-          Editar
-        </button>
-      </a>
-    </div>
-    <!-- caja-padre = contiene los contendores de perfil y novelas  -->
-    <div class="box-container-main">
-      <!-- Caja de perfil de usuario -->
-      <div class="container-profile">
-        <!-- contenedor de foto perfil y nombre de usuario y demas descirpciones de usuario -->
-         <div class="flex"> <!-- esto fue solo para que el se acomodaran correctamente los bloques -->
-           {% if user.profile.image_profile %}
-          <div >
+<main>
+  <!-- Caja de título y botones -->
+  <div class="titulo-and-botones-edit">
+    <h1 class="title-profile">Perfil de usuario</h1>
+    <a class="button_edit" href="{% url 'account:update' user.pk %}">
+      <button class="buttom_edit">Editar</button>
+    </a>
+  </div>
+
+  <!-- Contenedor padre -->
+  <div class="box-container-main">
+    <!-- Caja de perfil de usuario -->
+    <div class="container-profile">
+      <!-- NOTA: COLOCAR EL WITD AUTO EN EL CSS, POR AHORA NO FUNCIONA COMO QUIERO, QUEDA PENDIENTE  -->
+      <div class="flex">
+        {% if user.profile.image_profile %}
+        <div>
           <img
-          src="{{ user.profile.image_profile.url }}"
-              alt="foto de perfil de usuario"
-              ,
-              height="190"
-              ,
-              width="200"
-              ,
-              class="photo_profile"
-            />
-          </div>
-          {% else %}
-          <div>
-            <img class="photo_profile", src="/media/profiles_images/default.png" alt="foto de perfil cuando el usuario no tiene pfoto de perfil", width="200", height="190">
-  
-          </div>
-          {% endif %}
-          <!-- nombre de usuario de y renociminetos  -->
-          <div class="name-and-rewards">
-            <!-- etilo uno de bajo de otro -->
-            <div class="bloque">
-              <div class="user-name">{{ user.username }}</div>
-              <!-- pronombre de usuario -->
-               {% if user_profile.pronoun %}
-              <div class="pronoun">{{ user_profile.pronoun }}</div>
-              {% else %}
-              <div class="pronoun">Pronoun</div>
-              {% endif %}
-              <!-- Inicio de social netwrk section -->
-              {% if user_profile.social_network %}
-              <div class="social">{{ user_profile.social_network }}</div>
-            </div>
+            src="{{ user.profile.image_profile.url }}"
+            alt="foto de perfil"
+            height="190"
+            width="200"
+            class="photo_profile"
+          />
+        </div>
+        {% else %}
+        <div>
+          <img
+            class="photo_profile"
+            src="/media/profiles_images/default.png"
+            alt="foto default"
+            width="200"
+            height="190"
+          />
+        </div>
+        {% endif %}
+
+        <div class="name-and-rewards">
+          <div class="bloque">
+            <div class="user-name">{{ user.username }}</div>
+            <!-- PRONOMBRE -->
+            {% if user_profile.pronoun %}
+            <div class="pronoun">{{ user_profile.pronoun }}</div>
             {% else %}
-            <div class="bloque">
-              <p class="user-name">{{ user.username }}</p>
-              <p>@usxrname</p>
-            </div>
+            <div class="pronoun">Pronoun</div>
+            {% endif %} {% if user_profile.social_network %}
+            <div class="social">{{ user_profile.social_network }}</div>
+            {% else %}
+            <p>@usxrname</p>
             {% endif %}
-            <!-- etilo uno al lado de otro -->
-             <!-- racha -->
-            <div class="de-lado">
-              <p>Dias Racha: 25</p>
-              <p>* Veterano</p>
-            </div>
+          </div>
+
+          <div class="de-lado">
+            <p>Dias Racha: 25</p>
+            <p>* Veterano</p>
           </div>
         </div>
-        <!-- Aqui empieza la parte de abajo de la card del perfil -->
-        <!-- campo del biogafia del ususario  -->
-        {% if user_profile.about_me %}
-       <div class="container-biografia-usuario">
-         <p class="biogafia-text">biografia</p>
-         <div class="biogafia">{{ user_profile.about_me }}</div>
       </div>
-       {% else %}
-       <div class="container-biografia-usuario">
-        <p>Sin biografia</p>
-       </div>
-       {% endif %}
-        
+
+      <!-- Biografía -->
+      <div class="container-biografia-usuario">
+        <p class="biogafia-text">biografia</p>
+        <div class="biogafia">
+          {{ user_profile.about_me|default:"Sin biografia" }}
+        </div>
       </div>
-      <!-- box novelas de usuario -->
-      <div class="container-novels">
-        <!-- Esta es la parte de arriba = donde se encuetra biblioteca y novelas hechas por: Nombre de ususario -->
-        <section class="encabezados">
-          <p class="text-style-gris">Biblioteca</p>
-          <div class="together">
-            <p class="text-style-white">
-              * Novelas hechas por: <p class="text-style-stand-out">{{ user.username }}</p> 
-            </p>
+      <!-- Categorias favoritas -->
+      <section class="favorite_categories">
+        <p class="biogafia-text">Categorias favoritas</p>
+        {% for categoria in user_profile.favorite_genes.all %}
+        <ul>
+          <li>* {{ categoria }}</li>
+        </ul>
+        {% empty %}
+        <ul>
+          <li>* El usuario no tiene generos favoritos</li>
+        </ul>
+        {% endfor %}
+      </section>
+    </div>
+
+    <!-- Caja novelas -->
+    <div class="container-novels">
+      <section class="encabezados">
+        <p class="text-style-gris">Biblioteca</p>
+        <div class="together">
+          <div class="text-style-white">
+            * Novelas hechas por:
+            <span class="text-style-stand-out">{{ user.username }}</span>
           </div>
-        </section>
-        <!-- NOVELAS CREADAS POR EL USUARIO -->
-        <div class="novels-user">
-          <!-- Aqui estamos llamando todos los elementos de descripcion de una novela -->
-          {% for novela in description %}
-           <div class="card-novel">
-             <img class="portada" src="{{ novela.imagen_portada.url }}" alt="imagen portada de novela">
-             <p class="title-novel">
-              {{ novela.title }}
-            </p>
-            <div class="al-lado">
-              <div class="flex" >
-                <!-- boton de me gusta -->
-                {% if novela.likes.all %}
-                <img class="boton-like" src="/media/profiles_images/simple-like-icon-the-icon-can-be-used-for-websites-print-templates-presentation-templates-illustrations-etc-free-vector-removebg-preview (2).png" alt="boton de me gusta", height=35", width="35">
-                  <p class="like">{{ novela.get_total_likes }}</p>
-                {% endif %}         
-              </div>
-                <button class="buttom_read">
-                Leer
-              </button>
+        </div>
+      </section>
+
+      <div class="novels-user">
+        {% for novela in description %}
+        <div class="card-novel">
+          <img
+            class="portada"
+            src="{{ novela.imagen_portada.url }}"
+            alt="portada"
+          />
+          <p class="title-novel">{{ novela.title }}</p>
+          <div class="al-lado">
+            <div class="flex">
+              {% if novela.likes.all %}
+              <img
+                class="boton-like"
+                src="/media/profiles_images/simple-like-icon-the-icon-can-be-used-for-websites-print-templates-presentation-templates-illustrations-etc-free-vector-removebg-preview (2).png"
+                alt="like"
+                height="35"
+                width="35"
+              />
+              <p class="like">{{ novela.get_total_likes }}</p>
+              {% endif %}
             </div>
-            <!-- fecha creacion de novela -->
-            <p class="date">
-              {{ novela.creation_date }}
-            </p>
-           </div>
-           <!-- Aparecera esta caja si el usuario no tiene novelas -->
-           {% empty %} 
-           <div class="user-no-novels"> <!-- PENDIENTE -->
-            <p>El usuario no ha creado aún una novela </p>
+            <button class="buttom_read">Leer</button>
           </div>
+          <p class="date">{{ novela.creation_date }}</p>
+        </div>
+        {% empty %}
+        <div class="user-no-novels">
+          <p>El usuario no ha creado aún una novela</p>
         </div>
         {% endfor %}
       </div>
-      <!-- errores  -->
-       {% if form.errors %}
-    <div style="color: red;">
-        <strong>Errores encontrados:</strong>
-        {{ form.errors }}
+      <!-- Fin de novels-user -->
     </div>
-{% endif %}
-    </div>
-  </body>
-</html>
+  </div>
+</main>
 {% endblock %}

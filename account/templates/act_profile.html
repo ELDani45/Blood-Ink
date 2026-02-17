@@ -12,27 +12,23 @@
 </head>
 <main>
   <div class="box-main-update-left">
-    {% if user.image.profile %}
+    {% if perfil.image_profile %}
     <div class="box-image-profile">
       <img
         class="image_profile"
         src="{{ user.profile.image_profile.url }}"
         alt="imagen de perfil de usuario"
-        ,
         height="250px"
-        ,
         width="250px"
       />
     </div>
     {% else %}
-    <div class="box-main-update-left">
+    <div class="box-image-profile">
       <img
         src="/media/profiles_images/default.png"
         alt="imagen por defecto del usuario cuando no tiene foto de perfil "
         class="image_profile"
-        ,
         width="250px"
-        ,
         height="250px"
       />
     </div>
@@ -65,7 +61,7 @@
           <label>Pronombre</label> <br />
           {{ form.pronoun }}
         </section>
-        <!--  ESTA ES UNA SECCION LIBRE PARA FUTUROS INPUTS, POR AHORA ES DE RELLENO  -->
+        <!-- red social de usuario -->
         <section>
           <label>Red Social</label> <br />
           {{ form.social_network }}
@@ -92,6 +88,8 @@
             </li>
             {% endfor %}
           </ul>
+          <!-- errores  -->
+          <p class="error-geners">{{ form.favorite_genes.errors }}</p>
         </section>
       </div>
       <!-- seccion de cambio de imagen  -->
