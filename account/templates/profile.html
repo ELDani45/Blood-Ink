@@ -78,11 +78,11 @@
         <p class="biogafia-text">Categorias favoritas</p>
         {% for categoria in user_profile.favorite_genes.all %}
         <ul>
-          <li>* {{ categoria }}</li>
+          <li class="categorias">* {{ categoria }}</li>
         </ul>
         {% empty %}
         <ul>
-          <li>* El usuario no tiene generos favoritos</li>
+          <li class="categorias">* El usuario no tiene generos favoritos</li>
         </ul>
         {% endfor %}
       </section>
@@ -122,13 +122,18 @@
               <p class="like">{{ novela.get_total_likes }}</p>
               {% endif %}
             </div>
-            <button class="buttom_read">Leer</button>
+
+            <a
+              class="buttom_read"
+              href="{% url 'account:description_novel' novela.id %}"
+              >Leer</a
+            >
           </div>
           <p class="date">{{ novela.creation_date }}</p>
         </div>
         {% empty %}
         <div class="user-no-novels">
-          <p>El usuario no ha creado aún una novela</p>
+          <p class="text-style-white">El usuario no ha creado aún una novela</p>
         </div>
         {% endfor %}
       </div>

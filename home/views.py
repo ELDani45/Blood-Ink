@@ -1,7 +1,6 @@
 # from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from novels.models import Description
-from login.forms import SignIn
 
 # Create your views here.
 
@@ -19,3 +18,7 @@ class Home(ListView):
         #  definimos el nombre en eñ que se pasaran los daros al template( denntro de los corchetes [] )
         context['list_novels'] = Description.objects.all()
         return context
+
+
+class AboutUs(TemplateView):
+    template_name = 'about_us.html'

@@ -137,9 +137,10 @@ p{
     border-radius: 15px;
 }
 .user-no-novels{
-    width: 300px;
+    width: 500px;
     height: 300px;
-    background-color: #060609
+    background-color: rgba(0, 0, 0, 0.523);
+    margin-left: 140px;
 }
 .card-novel{
     width: 220px;
@@ -169,14 +170,15 @@ p{
 
 }
 .buttom_read{
+    text-align: center;
     border: 2px solid #7335DD ;
-    width: 80px;
-    font-size: 17px;
+    width: 60px;
+    font-size: 19px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     background-color: #7335DD;
-    padding: 6px;
+    padding: 4px;
     border-radius: 10px;
     transition: background-color 0.3s ease, padding 0.3s ease;
     display: inline-block;
@@ -202,6 +204,12 @@ p{
     gap: 1180px
 
 
+}
+.text-buttom{
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center;
 }
 .button_edit{
     text-align: right;
@@ -256,4 +264,9 @@ p{
     border: 2px solid gray;
     background-color: #202020;
     margin-top: 10px;
+}
+.categorias{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
