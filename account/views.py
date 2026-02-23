@@ -1,5 +1,6 @@
 # from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView, UpdateView
 from django.urls import reverse_lazy
 
@@ -12,7 +13,7 @@ from novels.models import Description
 # Create your views here.
 
 
-class ProfileView(DetailView):
+class ProfileView(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'profile.html'
     context_object_name = 'user'
@@ -28,7 +29,7 @@ class ProfileView(DetailView):
         return context
 
 
-class Update_profile(UpdateView):
+class Update_profile(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = Form_edit_profile
     template_name = 'act_profile.html'
@@ -42,6 +43,9 @@ class Update_profile(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        print(f"USUARIO ACTUAL: {self.request.user}")
+        print(f"¿ESTÁ AUTENTICADO?: {self.request.user.is_authenticated}")
+
         if self.request.POST:
             context['user_fields'] = FormUserEdit(
                 self.request.POST, instance=self.request.user)

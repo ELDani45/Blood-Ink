@@ -62,4 +62,3 @@ class Form_edit_profile(forms.ModelForm):
                 raise forms.ValidationError(
                     f'Elegistes {cantidad} y el maximo de generos favoritos son 3')
         return geners
-# Nota no se estan editandolos campos del ususario
