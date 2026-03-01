@@ -8,8 +8,57 @@
 <!---->
 {% block content %}
 <main>
-  <div>
-    <h1>Acerca de Blood-Ink</h1>
+  <div class="box-main">
+    <div class="box-description">
+      <h1 class="blood-Ink">Blood-Ink</h1>
+      <p class="text-description">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat quae
+        eos a magni unde modi. Nisi culpa accusantium dolores laborum optio
+        dicta quae in quos alias labore, omnis quasi facilis. Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Sed est ipsum reprehenderit
+        doloremque. Aut iste alias, voluptas necessitatibus, velit repellendus
+        vel debitis amet magni optio, voluptates quam odio aperiam beatae.
+      </p>
+    </div>
+    <div class="box-details">
+      <section class="container-box">
+        <!-- primera linea  -->
+        <section class="firts-line">
+          <div class="box-data">
+            <h2 class="text-data">Novelas en Blood-Ink</h2>
+            <div class="number-data">{{ description_counts }}</div>
+            <div class="text-data-down">
+              con rutas múltiples y finales alternativos
+            </div>
+          </div>
+          <div class="box-data">
+            <h2 class="text-data">Usuarios en Blood-Ink</h2>
+            <div class="number-data">{{ profile_counts }}</div>
+            <div class="text-data-down">
+              entre lectura gratuita y ediciones de colección
+            </div>
+          </div>
+        </section>
+        <!-- segunda linea  -->
+        <section class="firts-line">
+          <div class="box-data">
+            <h2 class="text-data">Usuarios en Blood-Ink</h2>
+            <div class="number-data">{{ profile_counts }}</div>
+            <div class="text-data-down">
+              entre lectura gratuita y ediciones de colección
+            </div>
+          </div>
+          <!---->
+          <div class="box-data">
+            <h2 class="text-data">Novelas en Blood-Ink</h2>
+            <div class="number-data">{{ description_counts }}</div>
+            <div class="text-data-down">
+              con rutas múltiples y finales alternativos
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
   </div>
 </main>
 {% endblock %}
