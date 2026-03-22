@@ -35,7 +35,22 @@
           <a href="{% url 'home:about_us' %}">Nosotros</a>
         </li>
       </ul>
-
+      <div>
+        <form
+          class="form-container"
+          method="GET"
+          action="{% url 'home:home' %}"
+        >
+          <input
+            class="input-search-novel"
+            type="text"
+            placeholder="Buscar novela..."
+            name="q"
+            value="{{ request.GET.q }}"
+          />
+          <button type="submit" class="boton-search-novel">Buscar</button>
+        </form>
+      </div>
       <div class="auth-links-container">
         {% if user.is_authenticated %}
         <!-- url perfil -->
@@ -47,7 +62,9 @@
         <!-- url cerrar sesion-->
         <ul>
           <li>
-            <a href="{% url 'login:signout' %}">Cerrar sesión</a>
+            <a class="log-out" href="{% url 'login:signout' %}"
+              >Cerrar sesión</a
+            >
           </li>
         </ul>
         <!-- url hacer novela -->

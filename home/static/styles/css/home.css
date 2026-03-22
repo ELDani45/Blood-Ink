@@ -17,27 +17,63 @@ nav{
     
     /* background: linear-gradient(to right, #333, transparent); */
 }
+.log-out{
+    background-color: #202020; 
+    padding: 10px;
+    font-weight: bold;
+}
+.log-out:hover{
+    background-color: #3b3b3b; 
+    padding: 10px;
+    font-weight: bold;
+}
 
 ul li{
     list-style: none;
     padding: 3px;
     width: auto;
-    
 }
 ul li a{
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: #737178;
     padding: 8px;
-    border-radius: 30px;
     transition: background-color 0.3s ease, padding 0.3s ease;
-    display: inline-block; 
-    
+    display: inline-block;
+    border-radius: 8px; 
+    font-size: 19px;
 }
 ul li a:hover {
     background-color:  #7335DD ;
+    color: antiquewhite;
 }
-
+.form-container{
+    display: flex;justify-content: center;gap: 20px;
+}
+.input-search-novel{
+    width: 200px;
+    margin-left: 90px;
+    height: 29px;
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: #060609;
+    border: 3px solid #737178;
+    color: #737178;
+    
+}
+.boton-search-novel{
+    background-color: #7335DD;
+    border-radius: 8px;
+    color: #ffff;
+    border: 2px solid #7335DD;
+    font-size: 18px;
+}
+.boton-search-novel:hover{
+    background-color: #35235C;
+    transition: 0.3s;
+    border: 2px solid #35235C;
+    
+}
 .buttom_login{
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;

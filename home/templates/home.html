@@ -15,7 +15,7 @@
   <h2 class="subtitulo">Visuals Novels</h2>
   <!-- Aqui estamos creando cada card   -->
   <div class="contenedor_tarjetas">
-    {% for novel in list_novels %}
+    {% for novel in object_list %}
     <div class="card">
       <h2 class="card_title">{{ novel.title }}</h2>
       {% if novel.imagen_portada %}
@@ -32,6 +32,8 @@
         <button class="buttom_card">Leer</button>
       </a>
     </div>
+    {% empty %}
+    <p class="novels-dont-exist">La novela que buscates no existe</p>
     {% endfor %}
   </div>
 </main>

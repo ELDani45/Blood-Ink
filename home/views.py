@@ -20,6 +20,23 @@ class Home(ListView):
         context['list_novels'] = Description.objects.all()
         return context
 
+    def get_queryset(self):
+        # Obtenemos lo que viene del input 'q'
+        # .strip() quita espacios extra
+        query = self.request.GET.get('q', '').strip()
+
+        # Esto aparecerá en tu terminal de VS Code cuando busques
+        print(f"DEBUG: El usuario buscó la palabra: '{query}'")
+
+        if query:
+            # Filtramos. Asegúrate que sea DOBLE guion bajo
+            resultados = Description.objects.filter(title__icontains=query)
+            print(f"DEBUG: Se encontraron {resultados.count()} novelas")
+            return resultados
+
+        # Si no hay búsqueda, muestra TODO (para confirmar que el 'for' funciona)
+        return Description.objects.all()
+
 
 class AboutUs(TemplateView):
     template_name = 'about_us.html'
