@@ -33,7 +33,9 @@
       </a>
     </div>
     {% empty %}
-    <p class="novels-dont-exist">La novela que buscates no existe</p>
+    <p class="novels-dont-exist">
+      La novela " {{ request.GET.q }} " que buscates no existe.
+    </p>
     {% endfor %}
   </div>
 </main>
